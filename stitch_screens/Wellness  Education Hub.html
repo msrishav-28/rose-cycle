@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>RoseCycle | Wellness &amp; Education</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&amp;family=Manrope:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-secondary-fixed-variant": "#354c39",
+                    "surface-container-high": "#ece7e7",
+                    "inverse-surface": "#323030",
+                    "on-surface": "#1d1b1b",
+                    "on-secondary": "#ffffff",
+                    "on-error-container": "#93000a",
+                    "surface-bright": "#fef8f8",
+                    "surface-tint": "#8e4a4b",
+                    "surface-container-low": "#f8f2f2",
+                    "secondary-fixed-dim": "#b3cdb4",
+                    "on-tertiary-fixed-variant": "#792b46",
+                    "on-background": "#1d1b1b",
+                    "on-primary-container": "#864445",
+                    "tertiary": "#97425d",
+                    "inverse-on-surface": "#f5efef",
+                    "background": "#fef8f8",
+                    "on-surface-variant": "#504444",
+                    "on-primary-fixed-variant": "#723435",
+                    "primary-fixed-dim": "#ffb3b2",
+                    "surface-container": "#f2ecec",
+                    "error": "#ba1a1a",
+                    "secondary": "#4c644f",
+                    "outline-variant": "#d4c2c2",
+                    "tertiary-fixed": "#ffd9e1",
+                    "secondary-fixed": "#ceeacf",
+                    "error-container": "#ffdad6",
+                    "primary": "#8e4a4b",
+                    "surface-container-highest": "#e7e1e1",
+                    "on-primary": "#ffffff",
+                    "primary-container": "#ffbebd",
+                    "on-error": "#ffffff",
+                    "on-secondary-fixed": "#092010",
+                    "surface-container-lowest": "#ffffff",
+                    "outline": "#827473",
+                    "on-tertiary-container": "#8e3b56",
+                    "inverse-primary": "#ffb3b2",
+                    "on-secondary-container": "#526a55",
+                    "surface-variant": "#e7e1e1",
+                    "on-tertiary-fixed": "#3f001b",
+                    "tertiary-fixed-dim": "#ffb1c5",
+                    "surface": "#fef8f8",
+                    "secondary-container": "#ceeacf",
+                    "on-tertiary": "#ffffff"
+            },
+            "borderRadius": {
+                    "DEFAULT": "1rem",
+                    "lg": "2rem",
+                    "xl": "3rem",
+                    "full": "9999px"
+            },
+            "fontFamily": {
+                    "headline": ["Instrument Serif", "serif"],
+                    "body": ["Manrope", "sans-serif"],
+                    "label": ["Manrope", "sans-serif"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body { font-family: 'Manrope', sans-serif; background-color: #fef8f8; color: #1d1b1b; }
+        .serif { font-family: 'Instrument Serif', serif; }
+        .glass { background: rgba(254, 248, 248, 0.7); backdrop-filter: blur(20px); }
+        .phase-bloom { background: radial-gradient(circle at 70% 30%, #ffbebd33 0%, transparent 50%); }
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+    </style>
+</head>
+<body class="bg-surface text-on-surface selection:bg-primary-container selection:text-on-primary-container">
+<!-- Phase Bloom Background Decor -->
+<div class="fixed inset-0 phase-bloom pointer-events-none z-0"></div>
+<!-- TopNavBar (Shared Component) -->
+<header class="fixed top-0 w-full z-50 flex justify-between items-center px-6 py-4 bg-transparent backdrop-blur-xl">
+<div class="font-['Instrument_Serif'] text-2xl text-[#F4C2C2] italic">RoseCycle</div>
+<div class="flex items-center gap-4">
+<button class="material-symbols-outlined text-[#F4C2C2] hover:opacity-80 transition-opacity scale-95 active:transition-transform">dark_mode</button>
+<button class="material-symbols-outlined text-[#F4C2C2] hover:opacity-80 transition-opacity scale-95 active:transition-transform">account_circle</button>
+</div>
+</header>
+<main class="relative z-10 pt-24 pb-32 px-6 max-w-7xl mx-auto">
+<!-- Hero Section: Daily Affirmation -->
+<section class="mb-12">
+<p class="font-label text-label-md text-primary uppercase tracking-[0.2em] mb-4">Daily Affirmation</p>
+<h1 class="font-headline text-[3.5rem] leading-[1.1] text-on-surface mb-8 max-w-2xl italic">
+                "I listen to my body's whispers before they become screams."
+            </h1>
+<div class="flex flex-wrap gap-3">
+<span class="px-5 py-2 glass rounded-full border border-outline-variant/15 text-primary text-sm font-medium">Luteal Phase Care</span>
+<span class="px-5 py-2 glass rounded-full border border-outline-variant/15 text-secondary text-sm font-medium">Gentle Movement</span>
+</div>
+</section>
+<!-- Phase-Based Wellness Plans (Bento Grid) -->
+<section class="mb-16">
+<div class="flex justify-between items-end mb-8">
+<div>
+<h2 class="font-headline text-headline-md text-on-surface">Phase-Sync Sanctuary</h2>
+<p class="text-on-surface-variant font-body">Tailored wellness for your current cycle state.</p>
+</div>
+<button class="font-label text-primary text-sm font-semibold border-b border-primary/20 pb-1">View All Plans</button>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-12 gap-6">
+<!-- Large Featured: Nutrition -->
+<div class="md:col-span-8 group relative overflow-hidden rounded-xl h-[400px] bg-primary-container/20">
+<img class="absolute inset-0 w-full h-full object-cover mix-blend-overlay opacity-60 group-hover:scale-105 transition-transform duration-700" data-alt="Top down view of colorful seasonal nourishment bowl with pomegranate seeds, fresh greens and soft natural lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAGpCIl7ft8JCfO44xv3VnhXk4iRjgG4PJDDlteo6dd4bIQYJcQJJJ8Ow3sOGeOanGuwDi041D8q_MOSj2_N8NyyeCLc6dI2RHHagblyde1X4sJydLknuj6t4ZXf96E3jpMpa8gZaj4qZDBnJIN28m3XkdLtE0LE22oFvdmYSgmFQM65PYmFnQUZPhIfAKm_QwTSG8Xwpl_7DwJkXY1nkxvbFWfHDNSoWynOYYNkMr1AtCiAdstThKQCKsrWP-tdvJZhMRNhW54WJE"/>
+<div class="absolute inset-0 bg-gradient-to-t from-primary/80 to-transparent"></div>
+<div class="absolute bottom-0 p-10">
+<span class="bg-primary text-on-primary text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded-full mb-4 inline-block">Nutrition</span>
+<h3 class="font-headline text-[2.5rem] text-on-primary leading-tight mb-4">The Luteal Glow: <br/>Complex Carbs &amp; Zinc</h3>
+<p class="text-primary-fixed max-w-md mb-6">Focus on steady energy levels. Roasted sweet potatoes and dark chocolate are your best friends this week.</p>
+<button class="bg-surface-container-lowest text-primary px-8 py-3 rounded-full font-bold text-sm hover:bg-primary hover:text-white transition-colors">Open Meal Plan</button>
+</div>
+</div>
+<!-- Exercise Card -->
+<div class="md:col-span-4 rounded-xl bg-secondary-container/30 p-8 flex flex-col justify-between border border-outline-variant/10">
+<div>
+<span class="material-symbols-outlined text-secondary text-4xl mb-6" style="font-variation-settings: 'FILL' 0;">self_care</span>
+<h3 class="font-headline text-2xl text-on-secondary-container mb-4">Slow Flow Yoga</h3>
+<p class="text-on-secondary-container/80 text-sm leading-relaxed">During the luteal phase, opt for cortisol-conscious movement. 20 minutes of restorative stretching.</p>
+</div>
+<button class="w-full mt-8 bg-secondary text-on-secondary py-4 rounded-full font-semibold text-sm">Start Practice</button>
+</div>
+<!-- Skincare Card -->
+<div class="md:col-span-4 rounded-xl bg-surface-container p-8 flex flex-col justify-between border border-outline-variant/10">
+<div class="flex justify-between items-start">
+<h3 class="font-headline text-2xl text-on-surface">Skincare Ritual</h3>
+<span class="material-symbols-outlined text-primary">spa</span>
+</div>
+<div class="mt-4">
+<p class="text-on-surface-variant text-sm mb-4 italic">"Focus on soothing inflammation and deep hydration."</p>
+<ul class="space-y-3">
+<li class="flex items-center gap-3 text-xs font-semibold text-on-surface-variant">
+<span class="w-1.5 h-1.5 rounded-full bg-primary"></span> Double Cleanse
+                            </li>
+<li class="flex items-center gap-3 text-xs font-semibold text-on-surface-variant">
+<span class="w-1.5 h-1.5 rounded-full bg-primary"></span> Niacinamide Serum
+                            </li>
+</ul>
+</div>
+</div>
+<!-- AI Agent Suggestion Chip (Asymmetric Layout) -->
+<div class="md:col-span-8 rounded-xl bg-gradient-to-br from-tertiary/10 to-tertiary-container/30 p-8 border border-tertiary/5 relative overflow-hidden">
+<div class="relative z-10 flex flex-col md:flex-row items-center justify-between gap-6">
+<div class="max-w-md">
+<div class="flex items-center gap-2 mb-2">
+<span class="material-symbols-outlined text-tertiary text-sm">smart_toy</span>
+<span class="text-[10px] font-bold text-tertiary uppercase tracking-tighter">Rose AI Suggestion</span>
+</div>
+<h4 class="font-headline text-xl text-on-tertiary-container mb-2">Notice any skin sensitivity?</h4>
+<p class="text-sm text-on-tertiary-container/70">Your luteal phase often brings increased oil production. Would you like a custom acne-prevention routine?</p>
+</div>
+<button class="whitespace-nowrap px-8 py-3 bg-tertiary text-on-tertiary rounded-full text-sm font-bold shadow-lg shadow-tertiary/20">Talk to Rose</button>
+</div>
+</div>
+</div>
+</section>
+<!-- Curated Library: Editorial Section -->
+<section class="mb-16">
+<div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-10 gap-4">
+<div>
+<h2 class="font-headline text-[2.5rem] text-on-surface">The Editorial Library</h2>
+<div class="flex gap-4 mt-2">
+<button class="text-sm font-bold text-primary border-b-2 border-primary pb-1">Teen Hub</button>
+<button class="text-sm font-medium text-slate-400 pb-1">Adult Guide</button>
+</div>
+</div>
+<div class="flex gap-2 bg-surface-container-high p-1 rounded-full">
+<button class="px-6 py-2 rounded-full bg-surface-container-lowest text-xs font-bold shadow-sm">Latest</button>
+<button class="px-6 py-2 rounded-full text-xs font-medium text-on-surface-variant">Popular</button>
+</div>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-10">
+<!-- Article 1 -->
+<article class="flex flex-col">
+<div class="aspect-[4/5] rounded-xl overflow-hidden mb-6">
+<img class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-500 cursor-pointer" data-alt="Minimalist bedroom with warm sunlight filtering through linen curtains, a journal resting on a rumpled bed" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBc19IQk5c90h7SgCcvfMMAhiMIabA_togj7cqkJb5FfiaTtC0DHzk2JyzOe0az_r5vg8Mtmk4FC4VJavwq4-mqMBm7g1NYkz1IomH_UqevaJswvKxyvVBo6lsSXyXyQkQeOFs9e7dirhpjqHwkBCX2SlRyS-I0kCayEAnYGazXh4yBN5IE9_ST66rwQ2JfPBmKg-77qd2V9XA_aL0ANsQ3bXi8j6S-FzPOiRRoVtLhENnZQBSqfpYhzqFcAtlrMDPP2x-GPBEKp-c"/>
+</div>
+<span class="text-[10px] font-bold text-primary uppercase tracking-[0.2em] mb-3">Self Discovery</span>
+<h3 class="font-headline text-2xl text-on-surface leading-snug mb-4 hover:text-primary transition-colors cursor-pointer">Journaling Through Your Cycle: A Teen's First Guide</h3>
+<p class="text-sm text-on-surface-variant leading-relaxed mb-6">Learning to map your emotions to your hormones can feel like finding a secret map to yourself...</p>
+<div class="mt-auto flex items-center justify-between text-[10px] font-bold text-slate-400">
+<span>8 MIN READ</span>
+<span class="material-symbols-outlined text-sm">bookmark</span>
+</div>
+</article>
+<!-- Article 2 -->
+<article class="flex flex-col">
+<div class="aspect-[4/5] rounded-xl overflow-hidden mb-6">
+<img class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-500 cursor-pointer" data-alt="Artistic macro photo of delicate pink flowers with soft bokeh and ethereal lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD-jHeqvAU3z1BE_jNwJ63rutwJgOozAaXJ4tHbA2zH9kMJL9hpURmpnvN3Jt1XXHhphCLamEVR0SFBYKb2ruCehpQ7iYy27kXQpkR9iKKr3POQittBMwOUU2eQVEBekzy19AW5ptIJ0QPGU_tkpWU0knBm-Wyjo254utJNkeGWttlCo4K5pOP3SiIwqRCBiqFPw9RV9YezoSnlnGqsVA_qXV58tEzbbyUTLJCwp57L8vH_5BhBdZeeAnRDRMtjp54FW59ogK7WLb4"/>
+</div>
+<span class="text-[10px] font-bold text-secondary uppercase tracking-[0.2em] mb-3">Biology</span>
+<h3 class="font-headline text-2xl text-on-surface leading-snug mb-4 hover:text-primary transition-colors cursor-pointer">Demystifying The 'Four Seasons' of Your Hormones</h3>
+<p class="text-sm text-on-surface-variant leading-relaxed mb-6">Why you feel like a social butterfly one week and a hibernating bear the next. It's not magic, it's biology.</p>
+<div class="mt-auto flex items-center justify-between text-[10px] font-bold text-slate-400">
+<span>12 MIN READ</span>
+<span class="material-symbols-outlined text-sm">bookmark</span>
+</div>
+</article>
+<!-- Article 3 -->
+<article class="flex flex-col">
+<div class="aspect-[4/5] rounded-xl overflow-hidden mb-6">
+<img class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-500 cursor-pointer" data-alt="Close up of essential oil bottle with eucalyptus and lavender sprigs on a neutral textured background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBywsnsoPsAlXg-3VDsIr3vWA9W8iOxyZS4MAvMNHwMEvwZuUeRFUD571Z7-UZNfc9n9bzylM-eZS7lYU7nt_jdrXdI5K1ML6hQVk5y6gEulMimYQzM2ZDL87vTHUBvMP8pIDa07gM_RtH604Bf3RAg4NeoHHyAyQWv6aLDwH7Yr62K6ithVn_9KezfiP8Eh411sBca0SkzV7_zuq4O_-Aa8OL6_CRSGVT97dpQ33LVHil-8hNvQXGQpfrcdsarbLZpAyoiApDbSLI"/>
+</div>
+<span class="text-[10px] font-bold text-tertiary uppercase tracking-[0.2em] mb-3">Holistic Health</span>
+<h3 class="font-headline text-2xl text-on-surface leading-snug mb-4 hover:text-primary transition-colors cursor-pointer">Cramp Relief: Beyond The Ibuprofen Bottle</h3>
+<p class="text-sm text-on-surface-variant leading-relaxed mb-6">From magnesium-rich foods to heat therapy techniques that actually work for acute menstrual pain.</p>
+<div class="mt-auto flex items-center justify-between text-[10px] font-bold text-slate-400">
+<span>5 MIN READ</span>
+<span class="material-symbols-outlined text-sm">bookmark</span>
+</div>
+</article>
+</div>
+</section>
+<!-- Myth-Busting Cards -->
+<section class="mb-24">
+<h2 class="font-headline text-headline-md text-on-surface mb-8 text-center italic">Fact vs. Fiction</h2>
+<div class="flex flex-col md:flex-row gap-8 overflow-x-auto no-scrollbar pb-8">
+<div class="min-w-[320px] bg-surface-lowest p-10 rounded-xl shadow-[0px_12px_32px_rgba(29,27,27,0.06)] flex-shrink-0 relative group">
+<div class="absolute top-0 right-0 p-6 opacity-10 group-hover:opacity-20 transition-opacity">
+<span class="material-symbols-outlined text-8xl">cancel</span>
+</div>
+<p class="font-label text-[10px] font-bold text-error uppercase tracking-widest mb-4">Myth</p>
+<h4 class="font-headline text-2xl mb-6">"Your period stops when you go swimming."</h4>
+<div class="h-px w-12 bg-outline-variant/30 mb-6"></div>
+<p class="text-sm text-on-surface-variant font-medium leading-relaxed">Water pressure can temporarily slow down the flow, but it definitely doesn't stop. Tampons or cups are your best friends for a beach day!</p>
+</div>
+<div class="min-w-[320px] bg-surface-lowest p-10 rounded-xl shadow-[0px_12px_32px_rgba(29,27,27,0.06)] flex-shrink-0 relative group">
+<div class="absolute top-0 right-0 p-6 opacity-10 group-hover:opacity-20 transition-opacity">
+<span class="material-symbols-outlined text-8xl">check_circle</span>
+</div>
+<p class="font-label text-[10px] font-bold text-secondary uppercase tracking-widest mb-4">Fact</p>
+<h4 class="font-headline text-2xl mb-6">"Synchronizing cycles with friends is a myth."</h4>
+<div class="h-px w-12 bg-outline-variant/30 mb-6"></div>
+<p class="text-sm text-on-surface-variant font-medium leading-relaxed">The 'McClintock Effect' has been largely debunked by modern research. If your cycles align, it's most likely statistical coincidence!</p>
+</div>
+<div class="min-w-[320px] bg-surface-lowest p-10 rounded-xl shadow-[0px_12px_32px_rgba(29,27,27,0.06)] flex-shrink-0 relative group">
+<div class="absolute top-0 right-0 p-6 opacity-10 group-hover:opacity-20 transition-opacity">
+<span class="material-symbols-outlined text-8xl">cancel</span>
+</div>
+<p class="font-label text-[10px] font-bold text-error uppercase tracking-widest mb-4">Myth</p>
+<h4 class="font-headline text-2xl mb-6">"Sugar cravings during PMS are all in your head."</h4>
+<div class="h-px w-12 bg-outline-variant/30 mb-6"></div>
+<p class="text-sm text-on-surface-variant font-medium leading-relaxed">Nope! High progesterone increases metabolic rate, meaning you actually need about 100-300 more calories a day.</p>
+</div>
+</div>
+</section>
+</main>
+<!-- BottomNavBar (Shared Component) -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 pb-6 pt-3 bg-white/80 dark:bg-zinc-900/80 backdrop-blur-2xl rounded-t-[3rem] shadow-[0px_-12px_32px_rgba(244,194,194,0.1)]">
+<div class="flex flex-col items-center justify-center text-zinc-400 dark:text-zinc-500 hover:text-[#F4C2C2] transition-colors active:scale-90 duration-300 ease-out">
+<span class="material-symbols-outlined mb-1">home_health</span>
+<span class="font-['Manrope'] text-[10px] font-semibold tracking-wide uppercase">Home</span>
+</div>
+<div class="flex flex-col items-center justify-center text-zinc-400 dark:text-zinc-500 hover:text-[#F4C2C2] transition-colors active:scale-90 duration-300 ease-out">
+<span class="material-symbols-outlined mb-1">edit_note</span>
+<span class="font-['Manrope'] text-[10px] font-semibold tracking-wide uppercase">Log</span>
+</div>
+<div class="flex flex-col items-center justify-center text-zinc-400 dark:text-zinc-500 hover:text-[#F4C2C2] transition-colors active:scale-90 duration-300 ease-out">
+<span class="material-symbols-outlined mb-1">calendar_today</span>
+<span class="font-['Manrope'] text-[10px] font-semibold tracking-wide uppercase">Calendar</span>
+</div>
+<div class="flex flex-col items-center justify-center text-zinc-400 dark:text-zinc-500 hover:text-[#F4C2C2] transition-colors active:scale-90 duration-300 ease-out">
+<span class="material-symbols-outlined mb-1">smart_toy</span>
+<span class="font-['Manrope'] text-[10px] font-semibold tracking-wide uppercase">Agent</span>
+</div>
+<!-- Active Tab: Wellness -->
+<div class="flex flex-col items-center justify-center bg-[#F4C2C2]/20 text-[#F4C2C2] rounded-full px-5 py-2 active:scale-90 duration-300 ease-out">
+<span class="material-symbols-outlined mb-1" style="font-variation-settings: 'FILL' 1;">self_care</span>
+<span class="font-['Manrope'] text-[10px] font-semibold tracking-wide uppercase">Wellness</span>
+</div>
+</nav>
+</body></html>

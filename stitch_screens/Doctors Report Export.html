@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&amp;family=Manrope:wght@400;500;600;700&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+                  "secondary-fixed": "#ceeacf",
+                  "primary-container": "#ffbebd",
+                  "on-background": "#1d1b1b",
+                  "inverse-on-surface": "#f5efef",
+                  "surface-bright": "#fef8f8",
+                  "surface-variant": "#e7e1e1",
+                  "on-error": "#ffffff",
+                  "on-primary-fixed": "#3a090d",
+                  "surface-container-lowest": "#ffffff",
+                  "on-secondary-container": "#526a55",
+                  "on-secondary-fixed": "#092010",
+                  "inverse-surface": "#323030",
+                  "tertiary-fixed": "#ffd9e1",
+                  "on-tertiary-fixed": "#3f001b",
+                  "tertiary-container": "#ffbccc",
+                  "outline": "#827473",
+                  "on-secondary-fixed-variant": "#354c39",
+                  "on-error-container": "#93000a",
+                  "on-tertiary-container": "#8e3b56",
+                  "error-container": "#ffdad6",
+                  "surface-container-highest": "#e7e1e1",
+                  "on-surface": "#1d1b1b",
+                  "primary-fixed": "#ffdad9",
+                  "on-surface-variant": "#504444",
+                  "surface": "#fef8f8",
+                  "on-tertiary-fixed-variant": "#792b46",
+                  "on-secondary": "#ffffff",
+                  "primary": "#8e4a4b",
+                  "on-primary-fixed-variant": "#723435",
+                  "error": "#ba1a1a",
+                  "on-primary": "#ffffff",
+                  "secondary-fixed-dim": "#b3cdb4",
+                  "surface-dim": "#ded9d9",
+                  "secondary-container": "#ceeacf",
+                  "tertiary-fixed-dim": "#ffb1c5",
+                  "surface-tint": "#8e4a4b",
+                  "on-tertiary": "#ffffff",
+                  "secondary": "#4c644f",
+                  "on-primary-container": "#864445",
+                  "background": "#fef8f8",
+                  "tertiary": "#97425d",
+                  "surface-container": "#f2ecec",
+                  "surface-container-low": "#f8f2f2",
+                  "inverse-primary": "#ffb3b2",
+                  "primary-fixed-dim": "#ffb3b2",
+                  "outline-variant": "#d4c2c2",
+                  "surface-container-high": "#ece7e7"
+          },
+          "borderRadius": {
+                  "DEFAULT": "1rem",
+                  "lg": "2rem",
+                  "xl": "3rem",
+                  "full": "9999px"
+          },
+          "fontFamily": {
+                  "headline": ["Instrument Serif", "serif"],
+                  "body": ["Manrope", "sans-serif"],
+                  "label": ["Manrope", "sans-serif"]
+          }
+        },
+      },
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+    }
+    .tonal-transition {
+      transition: background-color 0.3s ease;
+    }
+    @media print {
+      .no-print { display: none; }
+      body { background-color: white; }
+    }
+  </style>
+</head>
+<body class="bg-surface text-on-surface font-body selection:bg-primary-container selection:text-on-primary-container">
+<!-- Top Navigation Bar -->
+<header class="fixed top-0 w-full z-50 bg-stone-50/80 dark:bg-stone-950/80 backdrop-blur-xl flex justify-between items-center px-6 py-4 w-full no-print">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary" data-icon="arrow_back">arrow_back</span>
+<h1 class="font-['Instrument_Serif'] italic text-2xl text-stone-800 dark:text-stone-100">RoseCycle</h1>
+</div>
+<div class="flex items-center gap-4">
+<button class="flex items-center gap-2 bg-primary text-on-primary px-6 py-2 rounded-full font-medium text-sm hover:opacity-90 transition-opacity">
+<span class="material-symbols-outlined text-sm" data-icon="download">download</span>
+        Export PDF
+      </button>
+<span class="material-symbols-outlined text-stone-500 hover:opacity-70 transition-opacity cursor-pointer" data-icon="account_circle">account_circle</span>
+<span class="material-symbols-outlined text-stone-500 hover:opacity-70 transition-opacity cursor-pointer" data-icon="settings">settings</span>
+</div>
+</header>
+<main class="max-w-4xl mx-auto pt-28 pb-32 px-6">
+<!-- Report Header Section -->
+<section class="mb-12">
+<div class="flex flex-col md:flex-row justify-between items-end gap-6 border-b-2 border-outline-variant/15 pb-8">
+<div>
+<span class="font-label text-xs uppercase tracking-widest text-primary font-bold mb-2 block">Clinical Health Summary</span>
+<h2 class="font-headline text-5xl md:text-6xl text-on-surface">Clara Rose</h2>
+<p class="text-on-surface-variant mt-2 font-medium">Reporting Period: Oct 2023 – Dec 2023</p>
+</div>
+<div class="text-right">
+<p class="font-label text-xs text-on-surface-variant uppercase tracking-tighter">Generated On</p>
+<p class="font-headline text-2xl italic">December 14, 2023</p>
+</div>
+</div>
+</section>
+<!-- Cycle Metrics Bento Grid -->
+<section class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+<!-- Big Metric -->
+<div class="md:col-span-2 bg-surface-container-low p-10 rounded-xl relative overflow-hidden">
+<div class="relative z-10">
+<p class="font-label text-xs uppercase tracking-widest text-on-surface-variant mb-8">Average Cycle Length</p>
+<div class="flex items-baseline gap-4">
+<span class="font-headline text-8xl text-primary">28</span>
+<span class="font-headline text-3xl italic text-on-surface-variant">days</span>
+</div>
+<p class="mt-6 text-on-secondary-fixed-variant max-w-xs leading-relaxed">
+            Consistent periodicity noted across the last three follicular and luteal phases. Within 5% variance of global averages.
+          </p>
+</div>
+<!-- Decorative subtle shape -->
+<div class="absolute -bottom-10 -right-10 w-64 h-64 bg-primary-container/20 rounded-full blur-3xl"></div>
+</div>
+<!-- Secondary Metrics -->
+<div class="flex flex-col gap-6">
+<div class="bg-secondary-container p-6 rounded-xl flex flex-col justify-between h-full">
+<span class="material-symbols-outlined text-on-secondary-container" data-icon="calendar_today">calendar_today</span>
+<div>
+<p class="font-headline text-3xl">3 Months</p>
+<p class="font-label text-xs uppercase opacity-70">Data Integrity</p>
+</div>
+</div>
+<div class="bg-tertiary-container p-6 rounded-xl flex flex-col justify-between h-full">
+<span class="material-symbols-outlined text-on-tertiary-container" data-icon="water_drop">water_drop</span>
+<div>
+<p class="font-headline text-3xl">5.2 Days</p>
+<p class="font-label text-xs uppercase opacity-70">Avg. Duration</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Symptom Frequency Analysis -->
+<section class="mb-12 bg-surface-container-highest/30 rounded-xl p-8">
+<h3 class="font-headline text-3xl mb-8">Symptom Frequency Analysis</h3>
+<div class="space-y-10">
+<!-- Cramps -->
+<div class="grid grid-cols-1 md:grid-cols-4 items-center gap-4">
+<div class="md:col-span-1">
+<p class="font-label text-sm font-semibold text-on-surface">Cramps</p>
+<p class="text-xs text-on-surface-variant">Follicular Start</p>
+</div>
+<div class="md:col-span-3 flex items-center gap-4">
+<div class="h-4 w-full bg-surface-container rounded-full overflow-hidden">
+<div class="h-full bg-primary" style="width: 65%;"></div>
+</div>
+<span class="font-headline text-xl w-12 text-right">65%</span>
+</div>
+</div>
+<!-- Mood Shifts -->
+<div class="grid grid-cols-1 md:grid-cols-4 items-center gap-4">
+<div class="md:col-span-1">
+<p class="font-label text-sm font-semibold text-on-surface">Mood Shifts</p>
+<p class="text-xs text-on-surface-variant">Luteal Phase</p>
+</div>
+<div class="md:col-span-3 flex items-center gap-4">
+<div class="h-4 w-full bg-surface-container rounded-full overflow-hidden">
+<div class="h-full bg-secondary" style="width: 42%;"></div>
+</div>
+<span class="font-headline text-xl w-12 text-right">42%</span>
+</div>
+</div>
+<!-- Bloating -->
+<div class="grid grid-cols-1 md:grid-cols-4 items-center gap-4">
+<div class="md:col-span-1">
+<p class="font-label text-sm font-semibold text-on-surface">Bloating</p>
+<p class="text-xs text-on-surface-variant">Pre-Menstrual</p>
+</div>
+<div class="md:col-span-3 flex items-center gap-4">
+<div class="h-4 w-full bg-surface-container rounded-full overflow-hidden">
+<div class="h-full bg-tertiary" style="width: 28%;"></div>
+</div>
+<span class="font-headline text-xl w-12 text-right">28%</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Clinical Findings / Notes -->
+<section class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+<div class="bg-surface-container p-8 rounded-xl min-h-[300px] border border-outline-variant/15">
+<div class="flex items-center gap-3 mb-6">
+<span class="material-symbols-outlined text-primary" data-icon="edit_note">edit_note</span>
+<h4 class="font-headline text-2xl">Clinical Findings</h4>
+</div>
+<div class="space-y-4">
+<div class="h-px bg-outline-variant/30 w-full"></div>
+<div class="h-px bg-outline-variant/30 w-full"></div>
+<div class="h-px bg-outline-variant/30 w-full"></div>
+<div class="h-px bg-outline-variant/30 w-full"></div>
+<div class="h-px bg-outline-variant/30 w-full"></div>
+<div class="h-px bg-outline-variant/30 w-full"></div>
+<div class="h-px bg-outline-variant/30 w-full"></div>
+<div class="h-px bg-outline-variant/30 w-full"></div>
+</div>
+<p class="mt-4 text-on-surface-variant text-sm italic">Physician to sign upon review.</p>
+</div>
+<div class="bg-surface-container-low p-8 rounded-xl flex flex-col justify-between">
+<div>
+<h4 class="font-headline text-2xl mb-4">Patient Overview</h4>
+<p class="text-on-surface-variant leading-relaxed text-sm">
+            Patient exhibits a highly regular cycle with moderate symptom clusters during the transition to the menstrual phase. Nutritional logging suggests a correlation between sodium intake and bloating spikes on Day 24-26. Recommended follow-up: Iron levels check.
+          </p>
+</div>
+<div class="mt-8 pt-8 border-t border-outline-variant/20 flex items-center gap-4">
+<div class="w-12 h-12 rounded-full overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="Professional headshot of a female doctor in a white coat with a stethoscope around her neck" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDggZkcl6x7TGh7CaCJkqU9EswrBLAGYk-svFneY9c3Oh91e7CTwtUdrL3_uRljj9huV1H1Vf81O7AK8CRtLpiTbPb0t4kJeZl7OTGHhmVfY6OnU-HWee5Pi2SF9NT1s-y1BCxmR9wLFrsW41f0R2SuS5MveUaeIAgzXnKMVsbDHAEgZ4D1uz4mDDSsvvucY5fCyaAEiulIIdIQ6WhtFIdag0dbrKuCZ5vabCs-7nuE4uf4VmUeH8wEl5wKkjAsv2XPxxtgT4--5B4"/>
+</div>
+<div>
+<p class="font-semibold text-sm">Dr. Elena Thorne</p>
+<p class="text-xs text-on-surface-variant">Chief Medical Officer, RoseCycle</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Footer Disclaimer -->
+<footer class="text-center text-xs text-on-surface-variant opacity-60 px-12">
+      This report is generated based on self-reported data within the RoseCycle application. It is intended for clinical discussion and should not be used as a standalone diagnostic tool. Confidential patient information. © 2023 RoseCycle Health.
+    </footer>
+</main>
+<!-- Bottom Navigation Bar (Hidden on Desktop, Visible on Mobile) -->
+<nav class="md:hidden fixed bottom-0 left-0 w-full flex justify-around items-center px-4 pb-6 pt-4 bg-white/70 dark:bg-stone-950/70 backdrop-blur-2xl rounded-t-[3rem] z-50 shadow-[0px_-12px_32px_rgba(29,27,27,0.06)] no-print">
+<div class="flex flex-col items-center justify-center text-stone-400 dark:text-stone-500 px-5 py-2 hover:text-stone-600 transition-colors">
+<span class="material-symbols-outlined" data-icon="radio_button_checked">radio_button_checked</span>
+<span class="font-['Manrope'] text-[10px] font-semibold uppercase tracking-widest mt-1">Cycle</span>
+</div>
+<div class="flex flex-col items-center justify-center text-stone-400 dark:text-stone-500 px-5 py-2 hover:text-stone-600 transition-colors">
+<span class="material-symbols-outlined" data-icon="self_improvement">self_improvement</span>
+<span class="font-['Manrope'] text-[10px] font-semibold uppercase tracking-widest mt-1">Wellness</span>
+</div>
+<div class="flex flex-col items-center justify-center text-stone-400 dark:text-stone-500 px-5 py-2 hover:text-stone-600 transition-colors">
+<span class="material-symbols-outlined" data-icon="face_6">face_6</span>
+<span class="font-['Manrope'] text-[10px] font-semibold uppercase tracking-widest mt-1">Skin</span>
+</div>
+<div class="flex flex-col items-center justify-center bg-[#F4C2C2]/20 text-stone-900 dark:text-[#F4C2C2] rounded-full px-5 py-2">
+<span class="material-symbols-outlined" data-icon="air">air</span>
+<span class="font-['Manrope'] text-[10px] font-semibold uppercase tracking-widest mt-1">Sanctuary</span>
+</div>
+</nav>
+</body></html>

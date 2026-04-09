@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Luteal Phase Wellness | RoseCycle</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&amp;family=Manrope:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "secondary-fixed": "#ceeacf",
+                    "primary-container": "#ffbebd",
+                    "on-background": "#1d1b1b",
+                    "inverse-on-surface": "#f5efef",
+                    "surface-bright": "#fef8f8",
+                    "surface-variant": "#e7e1e1",
+                    "on-error": "#ffffff",
+                    "on-primary-fixed": "#3a090d",
+                    "surface-container-lowest": "#ffffff",
+                    "on-secondary-container": "#526a55",
+                    "on-secondary-fixed": "#092010",
+                    "inverse-surface": "#323030",
+                    "tertiary-fixed": "#ffd9e1",
+                    "on-tertiary-fixed": "#3f001b",
+                    "tertiary-container": "#ffbccc",
+                    "outline": "#827473",
+                    "on-secondary-fixed-variant": "#354c39",
+                    "on-error-container": "#93000a",
+                    "on-tertiary-container": "#8e3b56",
+                    "error-container": "#ffdad6",
+                    "surface-container-highest": "#e7e1e1",
+                    "on-surface": "#1d1b1b",
+                    "primary-fixed": "#ffdad9",
+                    "on-surface-variant": "#504444",
+                    "surface": "#fef8f8",
+                    "on-tertiary-fixed-variant": "#792b46",
+                    "on-secondary": "#ffffff",
+                    "primary": "#8e4a4b",
+                    "on-primary-fixed-variant": "#723435",
+                    "error": "#ba1a1a",
+                    "on-primary": "#ffffff",
+                    "secondary-fixed-dim": "#b3cdb4",
+                    "surface-dim": "#ded9d9",
+                    "secondary-container": "#ceeacf",
+                    "tertiary-fixed-dim": "#ffb1c5",
+                    "surface-tint": "#8e4a4b",
+                    "on-tertiary": "#ffffff",
+                    "secondary": "#4c644f",
+                    "on-primary-container": "#864445",
+                    "background": "#fef8f8",
+                    "tertiary": "#97425d",
+                    "surface-container": "#f2ecec",
+                    "surface-container-low": "#f8f2f2",
+                    "inverse-primary": "#ffb3b2",
+                    "primary-fixed-dim": "#ffb3b2",
+                    "outline-variant": "#d4c2c2",
+                    "surface-container-high": "#ece7e7"
+            },
+            "borderRadius": {
+                    "DEFAULT": "1rem",
+                    "lg": "2rem",
+                    "xl": "3rem",
+                    "full": "9999px"
+            },
+            "fontFamily": {
+                    "headline": ["Instrument Serif", "serif"],
+                    "body": ["Manrope", "sans-serif"],
+                    "label": ["Manrope", "sans-serif"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+      .material-symbols-outlined {
+        font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      }
+      .no-line { border: none !important; }
+      .tonal-transition { transition: background-color 0.3s ease; }
+      .glass-card {
+        background: rgba(255, 255, 255, 0.7);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+      }
+      .phase-bloom {
+        position: fixed;
+        width: 80vw;
+        height: 80vw;
+        border-radius: 50%;
+        filter: blur(80px);
+        z-index: -1;
+        opacity: 0.15;
+        background: radial-gradient(circle, #97425d 0%, transparent 70%);
+        top: -10%;
+        right: -10%;
+      }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body min-h-screen pb-32">
+<div class="phase-bloom"></div>
+<!-- Top Navigation -->
+<nav class="fixed top-0 w-full z-50 bg-stone-50/80 dark:bg-stone-950/80 backdrop-blur-xl flex justify-between items-center px-6 py-4 w-full">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary" data-icon="arrow_back">arrow_back</span>
+<span class="font-['Instrument_Serif'] italic text-2xl text-stone-800 dark:text-stone-100">RoseCycle</span>
+</div>
+<div class="flex items-center gap-6">
+<span class="material-symbols-outlined text-stone-500 dark:text-stone-400 hover:opacity-70 transition-opacity" data-icon="account_circle">account_circle</span>
+<span class="material-symbols-outlined text-stone-500 dark:text-stone-400 hover:opacity-70 transition-opacity" data-icon="settings">settings</span>
+</div>
+</nav>
+<main class="pt-24 px-6 md:px-12 max-w-5xl mx-auto">
+<!-- Hero Header -->
+<header class="mb-12">
+<div class="flex items-center gap-3 mb-4">
+<span class="px-4 py-1.5 bg-tertiary-container text-on-tertiary-container rounded-full text-xs font-bold tracking-widest uppercase">The Sanctuary</span>
+<span class="text-on-surface-variant font-label text-sm italic">Day 21 — 28</span>
+</div>
+<h1 class="font-headline text-6xl md:text-8xl leading-[0.9] text-tertiary mb-8">Luteal <br/><span class="italic font-normal">Inner Harvest</span></h1>
+<p class="text-xl md:text-2xl text-on-surface-variant max-w-2xl font-light leading-relaxed">As your body prepares for renewal, energy turns inward. This is your season of grounding, craving nourishment and gentle reflection.</p>
+</header>
+<!-- Bento Layout -->
+<div class="grid grid-cols-1 md:grid-cols-12 gap-6 mb-12">
+<!-- Nutrition Card -->
+<section class="md:col-span-8 bg-surface-container rounded-xl p-8 flex flex-col justify-between min-h-[400px] overflow-hidden relative">
+<div class="relative z-10">
+<h2 class="font-headline text-4xl mb-6 flex items-center gap-3">
+                        Nutrition 
+                        <span class="material-symbols-outlined text-primary" data-icon="restaurant">restaurant</span>
+</h2>
+<p class="text-lg text-on-surface-variant mb-8 max-w-md">Focus on complex carbohydrates to stabilize serotonin and zinc-rich foods to support hormonal transition.</p>
+<div class="flex flex-wrap gap-3 mb-10">
+<span class="px-4 py-2 bg-white rounded-lg shadow-sm font-medium text-sm">Sweet Potatoes</span>
+<span class="px-4 py-2 bg-white rounded-lg shadow-sm font-medium text-sm">Pumpkin Seeds</span>
+<span class="px-4 py-2 bg-white rounded-lg shadow-sm font-medium text-sm">Quinoa</span>
+<span class="px-4 py-2 bg-white rounded-lg shadow-sm font-medium text-sm">Dark Chocolate</span>
+</div>
+</div>
+<div class="flex justify-start relative z-10">
+<button class="bg-gradient-to-br from-primary to-primary-container text-on-primary px-8 py-4 rounded-full font-bold flex items-center gap-3 shadow-lg hover:scale-[1.02] transition-transform">
+                        Open Meal Plan
+                        <span class="material-symbols-outlined text-sm" data-icon="auto_awesome">auto_awesome</span>
+</button>
+</div>
+<!-- Abstract decorative image/background element -->
+<div class="absolute -right-20 -bottom-20 w-80 h-80 opacity-40">
+<img alt="Nutrition" class="w-full h-full object-cover rounded-full mix-blend-multiply" data-alt="Close-up of vibrant purple root vegetables and seeds arranged artistically on a textured ceramic plate with soft natural lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCBmdtAfD7LKN-W85hbITUvTO4kI7aXkiyCXwpM9ijtBYz-xCGYGum21L0GS2W1CAbwNCK2vxsYWqAcTrivK6GNVr7-qaTX43Gx0vr6bkhKCy6WLcD8IArlT7d6HeetZp1Jk-Lv_COUUuQ-ed62B5XYBD63I55HxvrRWee2MnX5WiA1-LQHgrpn7Y12-vf9XoGiWbRXh4cYL91DHhBAj3dn79ZfcEB53CLZON9EBHeJBd0MO1kjJ6Yabl-uaznt8jKHylEJacDDajk"/>
+</div>
+</section>
+<!-- Mindset Card -->
+<section class="md:col-span-4 bg-tertiary-fixed text-on-tertiary-fixed rounded-xl p-8 flex flex-col">
+<span class="material-symbols-outlined text-4xl mb-6" data-icon="edit_note" style="font-variation-settings: 'FILL' 1;">edit_note</span>
+<h2 class="font-headline text-3xl mb-4">Mindset</h2>
+<p class="text-md mb-8 leading-relaxed opacity-90">The "Inner Critic" can be loud now. Channel this energy into focused journaling.</p>
+<div class="space-y-6 flex-grow">
+<div class="border-b border-on-tertiary-fixed/10 pb-4">
+<p class="text-sm font-bold uppercase tracking-tighter mb-2 opacity-60">Prompt 01</p>
+<p class="font-headline text-xl">What needs to be released in the coming cycle?</p>
+</div>
+<div class="border-b border-on-tertiary-fixed/10 pb-4">
+<p class="text-sm font-bold uppercase tracking-tighter mb-2 opacity-60">Prompt 02</p>
+<p class="font-headline text-xl">Where did I find my truest strength this month?</p>
+</div>
+</div>
+</section>
+<!-- Movement Card -->
+<section class="md:col-span-12 bg-secondary-container rounded-xl overflow-hidden flex flex-col md:flex-row">
+<div class="p-8 md:p-12 md:w-1/2 flex flex-col justify-center">
+<h2 class="font-headline text-5xl mb-6">Movement: <br/><span class="italic font-normal">Slow Flow Yoga</span></h2>
+<p class="text-lg text-on-secondary-container mb-8 leading-relaxed">Prioritize parasympathetic nervous system activation. Lower the intensity and focus on deep, rhythmic breathing and restorative holds.</p>
+<div class="flex items-center gap-6">
+<button class="bg-secondary text-on-secondary px-8 py-4 rounded-full font-bold flex items-center gap-3 hover:scale-105 transition-transform">
+                            Start Practice
+                            <span class="material-symbols-outlined" data-icon="play_circle">play_circle</span>
+</button>
+<span class="text-secondary font-bold text-sm tracking-widest uppercase">24 Minutes</span>
+</div>
+</div>
+<div class="md:w-1/2 h-64 md:h-auto relative">
+<img alt="Yoga Practice" class="w-full h-full object-cover" data-alt="A woman in a peaceful attic studio doing a gentle yoga child pose on a sage green mat with warm morning sunlight streaming through a window" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAyIkkW_HlS4Vb6A82I9if-Zgitbb4FteAa7NIdW7sVyjg-CBDT1LC0sAD2rQxFgbj9qF82BDgxX9WvjmgRrVh3WkB87zmAXlDV2Yl5Igy7E9J-dySOTP1ioQn3wlBpbD0Em4AEmOwOb6WKkbLvQHcoPKrkq6LThS1aFV7bP_1ZG-9e3tAU_6Vb9C8o5U2BXlPq8E9UE82C_Ae-OTgAheR6a_zZcolBPHmyV0Dcp2v-GqS3L4_1T11irzzlhRfUOVBJoaOcbAzDMtg"/>
+<div class="absolute inset-0 bg-gradient-to-r from-secondary-container via-transparent to-transparent hidden md:block"></div>
+</div>
+</section>
+</div>
+<!-- Article Content -->
+<article class="max-w-3xl mx-auto py-12">
+<h3 class="font-headline text-4xl mb-8">Understanding the Luteal Shift</h3>
+<div class="space-y-6 text-on-surface-variant text-lg leading-relaxed">
+<p>During the luteal phase, progesterone becomes the dominant hormone. While this can bring a sense of calm for some, for others, the decline in estrogen can lead to a dip in mood-regulating neurotransmitters like serotonin.</p>
+<blockquote class="border-l-4 border-primary pl-8 py-4 my-12 italic font-headline text-3xl text-on-surface">
+                    "This is not a time of loss, but a time of gathering. Treat your energy like a finite treasure."
+                </blockquote>
+<p>Physiologically, your basal body temperature rises and your metabolic rate increases slightly—which is why you might feel hungrier. Honor this by choosing high-quality, slow-burning fuel rather than quick sugar fixes which can exacerbate pre-menstrual mood swings.</p>
+</div>
+</article>
+</main>
+<!-- Bottom Navigation -->
+<nav class="fixed bottom-0 left-0 w-full flex justify-around items-center px-4 pb-6 pt-4 bg-white/70 dark:bg-stone-950/70 backdrop-blur-2xl rounded-t-[3rem] z-50 shadow-[0px_-12px_32px_rgba(29,27,27,0.06)]">
+<div class="flex flex-col items-center justify-center text-stone-400 dark:text-stone-500 px-5 py-2 hover:text-stone-600 dark:hover:text-stone-300 transition-colors">
+<span class="material-symbols-outlined mb-1" data-icon="radio_button_checked">radio_button_checked</span>
+<span class="font-['Manrope'] text-[10px] font-semibold uppercase tracking-widest">Cycle</span>
+</div>
+<div class="flex flex-col items-center justify-center bg-[#F4C2C2]/20 text-stone-900 dark:text-[#F4C2C2] rounded-full px-5 py-2">
+<span class="material-symbols-outlined mb-1" data-icon="self_improvement" style="font-variation-settings: 'FILL' 1;">self_improvement</span>
+<span class="font-['Manrope'] text-[10px] font-semibold uppercase tracking-widest">Wellness</span>
+</div>
+<div class="flex flex-col items-center justify-center text-stone-400 dark:text-stone-500 px-5 py-2 hover:text-stone-600 dark:hover:text-stone-300 transition-colors">
+<span class="material-symbols-outlined mb-1" data-icon="face_6">face_6</span>
+<span class="font-['Manrope'] text-[10px] font-semibold uppercase tracking-widest">Skin</span>
+</div>
+<div class="flex flex-col items-center justify-center text-stone-400 dark:text-stone-500 px-5 py-2 hover:text-stone-600 dark:hover:text-stone-300 transition-colors">
+<span class="material-symbols-outlined mb-1" data-icon="air">air</span>
+<span class="font-['Manrope'] text-[10px] font-semibold uppercase tracking-widest">Sanctuary</span>
+</div>
+</nav>
+</body></html>

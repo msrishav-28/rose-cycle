@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>RoseCycle — Your Sanctuary</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&amp;family=Manrope:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-secondary-fixed-variant": "#354c39",
+                        "surface-container-high": "#ece7e7",
+                        "inverse-surface": "#323030",
+                        "on-surface": "#1d1b1b",
+                        "on-secondary": "#ffffff",
+                        "on-error-container": "#93000a",
+                        "surface-bright": "#fef8f8",
+                        "surface-tint": "#8e4a4b",
+                        "surface-container-low": "#f8f2f2",
+                        "secondary-fixed-dim": "#b3cdb4",
+                        "on-tertiary-fixed-variant": "#792b46",
+                        "on-background": "#1d1b1b",
+                        "on-primary-container": "#864445",
+                        "tertiary": "#97425d",
+                        "inverse-on-surface": "#f5efef",
+                        "background": "#fef8f8",
+                        "on-surface-variant": "#504444",
+                        "on-primary-fixed-variant": "#723435",
+                        "primary-fixed-dim": "#ffb3b2",
+                        "surface-container": "#f2ecec",
+                        "error": "#ba1a1a",
+                        "secondary": "#4c644f",
+                        "outline-variant": "#d4c2c2",
+                        "tertiary-fixed": "#ffd9e1",
+                        "secondary-fixed": "#ceeacf",
+                        "error-container": "#ffdad6",
+                        "primary": "#8e4a4b",
+                        "surface-container-highest": "#e7e1e1",
+                        "on-primary": "#ffffff",
+                        "primary-container": "#ffbebd",
+                        "on-error": "#ffffff",
+                        "on-secondary-fixed": "#092010",
+                        "surface-container-lowest": "#ffffff",
+                        "outline": "#827473",
+                        "on-tertiary-container": "#8e3b56",
+                        "inverse-primary": "#ffb3b2",
+                        "on-secondary-container": "#526a55",
+                        "surface-variant": "#e7e1e1",
+                        "on-tertiary-fixed": "#3f001b",
+                        "tertiary-fixed-dim": "#ffb1c5",
+                        "surface": "#fef8f8",
+                        "secondary-container": "#ceeacf",
+                        "on-tertiary": "#ffffff"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "1rem",
+                        "lg": "2rem",
+                        "xl": "3rem",
+                        "full": "9999px"
+                    },
+                    "fontFamily": {
+                        "headline": ["Instrument Serif", "serif"],
+                        "body": ["Manrope", "sans-serif"],
+                        "label": ["Manrope", "sans-serif"]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        body { font-family: 'Manrope', sans-serif; }
+        .serif-text { font-family: 'Instrument Serif', serif; }
+        .glass { backdrop-filter: blur(20px); background: rgba(254, 248, 248, 0.75); }
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+        .phase-bloom {
+            position: fixed;
+            top: -20%;
+            right: -10%;
+            width: 80vw;
+            height: 80vw;
+            background: radial-gradient(circle, rgba(244, 194, 194, 0.4) 0%, rgba(254, 248, 248, 0) 70%);
+            z-index: -1;
+            filter: blur(60px);
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-surface min-h-screen flex flex-col items-center selection:bg-primary-container selection:text-on-primary-container">
+<div class="phase-bloom"></div>
+<!-- Top Navigation Bar -->
+<nav class="fixed top-0 w-full z-50 flex justify-between items-center px-6 py-4 bg-transparent backdrop-blur-xl">
+<div class="font-['Instrument_Serif'] text-2xl text-[#F4C2C2] italic">RoseCycle</div>
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-slate-400 hover:opacity-80 transition-opacity cursor-pointer">dark_mode</span>
+<span class="material-symbols-outlined text-slate-400 hover:opacity-80 transition-opacity cursor-pointer">account_circle</span>
+</div>
+</nav>
+<!-- Main Content Canvas -->
+<main class="w-full max-w-2xl px-6 pt-32 pb-40 flex flex-col">
+<!-- Welcome Header -->
+<header class="mb-12">
+<h1 class="serif-text text-6xl leading-tight mb-4 text-on-surface">Welcome to your <br/><span class="italic text-primary">sanctuary</span>.</h1>
+<p class="text-on-surface-variant text-lg max-w-md">Let's create a personalized experience that respects your rhythm and privacy.</p>
+</header>
+<!-- Onboarding Flow Steps -->
+<section class="space-y-16">
+<!-- Step 1: Age Context (Teen vs Adult) -->
+<div class="space-y-6">
+<div class="flex items-center gap-2">
+<span class="serif-text text-2xl text-primary">01</span>
+<span class="font-label text-xs uppercase tracking-widest text-outline">Context</span>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+<button class="group relative overflow-hidden bg-surface-container rounded-xl p-8 text-left transition-all hover:bg-surface-container-high border-none focus:ring-2 focus:ring-primary/20">
+<span class="material-symbols-outlined text-secondary text-4xl mb-4" data-icon="auto_awesome">auto_awesome</span>
+<h3 class="serif-text text-2xl mb-2">Teen Mode</h3>
+<p class="text-sm text-on-surface-variant leading-relaxed">Privacy-first, educational guidance for younger cycles.</p>
+<div class="absolute -right-4 -bottom-4 opacity-10 group-hover:opacity-20 transition-opacity">
+<span class="material-symbols-outlined text-9xl" data-icon="face_6">face_6</span>
+</div>
+</button>
+<button class="group relative overflow-hidden bg-surface-container-highest rounded-xl p-8 text-left transition-all hover:bg-surface-container-high border-none ring-2 ring-primary/40 shadow-xl shadow-primary/5">
+<span class="material-symbols-outlined text-primary text-4xl mb-4" data-icon="spa" style="font-variation-settings: 'FILL' 1;">spa</span>
+<h3 class="serif-text text-2xl mb-2">Adult Mode</h3>
+<p class="text-sm text-on-surface-variant leading-relaxed">Comprehensive tracking with deeper clinical insights.</p>
+<div class="absolute -right-4 -bottom-4 opacity-10 group-hover:opacity-20 transition-opacity">
+<span class="material-symbols-outlined text-9xl" data-icon="person_4">person_4</span>
+</div>
+</button>
+</div>
+</div>
+<!-- Step 2: Cycle History (Organic Inputs) -->
+<div class="space-y-8">
+<div class="flex items-center gap-2">
+<span class="serif-text text-2xl text-primary">02</span>
+<span class="font-label text-xs uppercase tracking-widest text-outline">Your Rhythm</span>
+</div>
+<div class="bg-surface-container rounded-xl p-8 space-y-10">
+<!-- Date Picker Placeholder -->
+<div class="space-y-4">
+<label class="font-label text-sm text-on-surface-variant">When did your last period start?</label>
+<div class="flex items-baseline gap-4 border-b border-outline-variant/30 pb-2">
+<span class="serif-text text-4xl text-primary">January 14</span>
+<span class="material-symbols-outlined text-outline cursor-pointer" data-icon="calendar_today">calendar_today</span>
+</div>
+</div>
+<!-- Sliders / Numeric Inputs -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+<div class="space-y-4">
+<label class="font-label text-sm text-on-surface-variant">Typical length (Days)</label>
+<div class="flex items-center justify-between">
+<span class="serif-text text-5xl">28</span>
+<div class="flex gap-2">
+<button class="w-10 h-10 rounded-full bg-surface-container-highest flex items-center justify-center text-primary"><span class="material-symbols-outlined" data-icon="remove">remove</span></button>
+<button class="w-10 h-10 rounded-full bg-surface-container-highest flex items-center justify-center text-primary"><span class="material-symbols-outlined" data-icon="add">add</span></button>
+</div>
+</div>
+</div>
+<div class="space-y-4">
+<label class="font-label text-sm text-on-surface-variant">Is it regular?</label>
+<div class="flex bg-surface-container-high p-1 rounded-full">
+<button class="flex-1 py-2 text-sm font-semibold rounded-full bg-surface-lowest shadow-sm">Yes</button>
+<button class="flex-1 py-2 text-sm font-semibold text-on-surface-variant">Mostly</button>
+<button class="flex-1 py-2 text-sm font-semibold text-on-surface-variant">No</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Step 3: Goals Bento Grid -->
+<div class="space-y-6">
+<div class="flex items-center gap-2">
+<span class="serif-text text-2xl text-primary">03</span>
+<span class="font-label text-xs uppercase tracking-widest text-outline">Aspirations</span>
+</div>
+<div class="grid grid-cols-6 gap-4">
+<div class="col-span-6 md:col-span-3 bg-secondary-container text-on-secondary-container p-6 rounded-xl relative group cursor-pointer overflow-hidden">
+<span class="material-symbols-outlined text-4xl mb-4" data-icon="eco">eco</span>
+<h4 class="font-bold text-xl mb-1">Wellness &amp; Balance</h4>
+<p class="text-sm opacity-80">Cycle-syncing your lifestyle for energy.</p>
+<div class="mt-4 flex items-center gap-1 text-xs font-bold uppercase tracking-widest">Selected <span class="material-symbols-outlined text-xs" data-icon="check_circle" style="font-variation-settings: 'FILL' 1;">check_circle</span></div>
+</div>
+<div class="col-span-3 md:col-span-3 bg-surface-container p-6 rounded-xl cursor-pointer hover:bg-surface-container-high transition-all">
+<span class="material-symbols-outlined text-4xl text-tertiary mb-4" data-icon="health_metrics">health_metrics</span>
+<h4 class="font-bold text-lg mb-1">PCOS/Health</h4>
+<p class="text-xs text-on-surface-variant">Track symptoms for clinical clarity.</p>
+</div>
+<div class="col-span-3 md:col-span-2 bg-surface-container p-6 rounded-xl cursor-pointer hover:bg-surface-container-high transition-all">
+<span class="material-symbols-outlined text-4xl text-primary mb-4" data-icon="psychology_alt">psychology_alt</span>
+<h4 class="font-bold text-lg mb-1">Mood</h4>
+</div>
+<div class="col-span-6 md:col-span-4 bg-surface-container p-6 rounded-xl flex items-center gap-6 cursor-pointer hover:bg-surface-container-high transition-all">
+<div class="w-16 h-16 rounded-full overflow-hidden flex-shrink-0">
+<img class="w-full h-full object-cover" data-alt="close-up of soft pink rose petals with morning dew for a calming floral aesthetic" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAHwLLt6vk0uQUGHFfd8MucJeoDs3xQSNUutjTrsyayToE89p7mw6E1MGvqNJysUK2qdfYrN9e7FTmJ3Wii8m0X_xlQlRrBK9sx5XXuQro8bJ_4jrLWPjkNWsMQXqz9kcLLT2fOKDM-LFb2mHAUqGRniaKnAPeE0fZScs0TJfJju6IIWRti6zbczlfD2MwwJ8qyXEpkYnflMOhi9mZmNyLvSG52g018t23azHzGbfcmu0F4dLZeMbZYUF9xkw8ZXqEsEo1d3mZG1K0"/>
+</div>
+<div>
+<h4 class="font-bold text-lg mb-1">Symptom Logging</h4>
+<p class="text-sm text-on-surface-variant">Simple tracking for daily awareness.</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Step 4: Privacy / Anonymous Mode -->
+<div class="space-y-6">
+<div class="flex items-center gap-2">
+<span class="serif-text text-2xl text-primary">04</span>
+<span class="font-label text-xs uppercase tracking-widest text-outline">Privacy</span>
+</div>
+<div class="glass border-outline-variant/15 border rounded-xl p-8 flex flex-col md:flex-row items-center gap-8">
+<div class="w-20 h-20 bg-primary-fixed rounded-full flex items-center justify-center">
+<span class="material-symbols-outlined text-primary text-4xl" data-icon="fingerprint">fingerprint</span>
+</div>
+<div class="flex-1 text-center md:text-left">
+<h4 class="serif-text text-2xl mb-2">Anonymous Mode</h4>
+<p class="text-on-surface-variant leading-relaxed mb-4">No email, no name, no trackers. Your data stays only on this device, encrypted and hidden from prying eyes.</p>
+<label class="relative inline-flex items-center cursor-pointer">
+<input checked="" class="sr-only peer" type="checkbox" value=""/>
+<div class="w-11 h-6 bg-surface-container-highest peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-secondary"></div>
+<span class="ml-3 text-sm font-medium text-secondary">Secured &amp; Active</span>
+</label>
+</div>
+</div>
+</div>
+<!-- Action Button -->
+<div class="pt-8 flex flex-col items-center gap-6">
+<button class="w-full md:w-auto px-12 py-4 bg-gradient-to-br from-primary to-primary-container text-on-primary font-bold text-lg rounded-full shadow-xl shadow-primary/20 hover:scale-105 active:scale-95 transition-transform">
+                    Enter the Sanctuary
+                </button>
+<p class="text-xs text-outline text-center">By continuing, you agree to our <span class="underline">Ethical Privacy Pledge</span></p>
+</div>
+</section>
+</main>
+<!-- Suppressed BottomNavBar for Transactional Flow as per Shell visibility & Relevance Rule -->
+<!-- However, to follow the instructions about the BottomNavBar existence, I will render it only if it were "Home" or "Calendar" page. -->
+<!-- Since this is an Onboarding flow, the Navigation Shell is suppressed to prioritize focus. -->
+<!-- Modal Backdrop Blur Effect for background depth -->
+<div class="fixed top-1/2 left-1/4 -z-20 w-96 h-96 bg-tertiary-fixed opacity-30 blur-[100px]"></div>
+<div class="fixed bottom-1/4 right-1/4 -z-20 w-96 h-96 bg-secondary-fixed opacity-30 blur-[100px]"></div>
+</body></html>

@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>RoseCycle - Daily Log</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&amp;family=Manrope:wght@400;500;600;700&amp;family=Noto+Serif:wght@400;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "on-background": "#1d1b1b",
+                      "secondary-fixed": "#ceeacf",
+                      "primary-fixed-dim": "#ffb3b2",
+                      "primary-container": "#ffbebd",
+                      "secondary": "#4c644f",
+                      "tertiary-fixed": "#ffd9e1",
+                      "surface-container-highest": "#e7e1e1",
+                      "on-secondary-fixed-variant": "#354c39",
+                      "primary": "#8e4a4b",
+                      "tertiary": "#97425d",
+                      "surface-container-lowest": "#ffffff",
+                      "on-tertiary-fixed": "#3f001b",
+                      "on-primary-fixed-variant": "#723435",
+                      "outline-variant": "#d4c2c2",
+                      "surface-container-high": "#ece7e7",
+                      "on-tertiary-container": "#8e3b56",
+                      "tertiary-container": "#ffbccc",
+                      "on-tertiary": "#ffffff",
+                      "surface-container": "#f2ecec",
+                      "on-secondary": "#ffffff",
+                      "on-primary": "#ffffff",
+                      "on-secondary-container": "#526a55",
+                      "background": "#fef8f8",
+                      "on-error-container": "#93000a",
+                      "surface-tint": "#8e4a4b",
+                      "inverse-primary": "#ffb3b2",
+                      "outline": "#827473",
+                      "on-primary-container": "#864445",
+                      "surface-variant": "#e7e1e1",
+                      "tertiary-fixed-dim": "#ffb1c5",
+                      "on-surface-variant": "#504444",
+                      "secondary-container": "#ceeacf",
+                      "error": "#ba1a1a",
+                      "primary-fixed": "#ffdad9",
+                      "secondary-fixed-dim": "#b3cdb4",
+                      "surface-container-low": "#f8f2f2",
+                      "surface": "#fef8f8",
+                      "inverse-surface": "#323030",
+                      "inverse-on-surface": "#f5efef",
+                      "on-tertiary-fixed-variant": "#792b46",
+                      "on-primary-fixed": "#3a090d",
+                      "error-container": "#ffdad6",
+                      "on-surface": "#1d1b1b",
+                      "surface-dim": "#ded9d9",
+                      "surface-bright": "#fef8f8",
+                      "on-error": "#ffffff",
+                      "on-secondary-fixed": "#092010"
+              },
+              "borderRadius": {
+                      "DEFAULT": "1rem",
+                      "lg": "2rem",
+                      "xl": "3rem",
+                      "full": "9999px"
+              },
+              "fontFamily": {
+                      "headline": ["Noto Serif"],
+                      "body": ["Manrope"],
+                      "label": ["Manrope"]
+              }
+            },
+          }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+        .glass-card {
+            background: rgba(254, 248, 248, 0.7);
+            backdrop-filter: blur(12px);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body min-h-screen pb-32">
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 flex justify-between items-center px-6 py-4 bg-transparent backdrop-blur-xl">
+<div class="font-['Instrument_Serif'] text-2xl text-[#F4C2C2] italic">RoseCycle</div>
+<div class="flex gap-4">
+<button class="text-slate-400 hover:opacity-80 transition-opacity active:transition-transform scale-95">
+<span class="material-symbols-outlined">dark_mode</span>
+</button>
+<button class="text-slate-400 hover:opacity-80 transition-opacity active:transition-transform scale-95">
+<span class="material-symbols-outlined">account_circle</span>
+</button>
+</div>
+</nav>
+<!-- Main Content Canvas -->
+<main class="pt-24 px-6 max-w-2xl mx-auto space-y-10">
+<!-- Header Section -->
+<header class="space-y-2">
+<h1 class="font-['Instrument_Serif'] text-[3.5rem] leading-tight text-on-surface">How are you feeling today?</h1>
+<p class="text-primary font-['Instrument_Serif'] text-xl italic opacity-80">Monday, May 15th</p>
+</header>
+<!-- Logging Form Section: Flow -->
+<section class="space-y-6">
+<h2 class="font-headline text-2xl text-on-surface-variant">Flow</h2>
+<div class="flex justify-between items-center gap-2 overflow-x-auto no-scrollbar py-2">
+<!-- None -->
+<button class="flex flex-col items-center gap-3 p-4 min-w-[80px] rounded-xl bg-surface-container-low hover:bg-primary-container/20 transition-colors">
+<span class="material-symbols-outlined text-outline">water_drop</span>
+<span class="text-[10px] font-semibold uppercase tracking-wider text-outline">None</span>
+</button>
+<!-- Light -->
+<button class="flex flex-col items-center gap-3 p-4 min-w-[80px] rounded-xl bg-surface-container-low hover:bg-primary-container/20 transition-colors">
+<span class="material-symbols-outlined text-primary/60">water_drop</span>
+<span class="text-[10px] font-semibold uppercase tracking-wider text-on-surface-variant">Light</span>
+</button>
+<!-- Medium -->
+<button class="flex flex-col items-center gap-3 p-4 min-w-[80px] rounded-xl bg-primary-container/40 border border-primary/10">
+<span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">water_drop</span>
+<span class="text-[10px] font-semibold uppercase tracking-wider text-primary">Medium</span>
+</button>
+<!-- Heavy -->
+<button class="flex flex-col items-center gap-3 p-4 min-w-[80px] rounded-xl bg-surface-container-low hover:bg-primary-container/20 transition-colors">
+<div class="relative">
+<span class="material-symbols-outlined text-primary/80">water_drop</span>
+<span class="material-symbols-outlined absolute -right-2 text-primary/80">water_drop</span>
+</div>
+<span class="text-[10px] font-semibold uppercase tracking-wider text-on-surface-variant">Heavy</span>
+</button>
+<!-- Very Heavy -->
+<button class="flex flex-col items-center gap-3 p-4 min-w-[80px] rounded-xl bg-surface-container-low hover:bg-primary-container/20 transition-colors">
+<span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">blood_pressure</span>
+<span class="text-[10px] font-semibold uppercase tracking-wider text-on-surface-variant">V. Heavy</span>
+</button>
+</div>
+</section>
+<!-- Pain Slider Section -->
+<section class="space-y-6">
+<div class="flex justify-between items-end">
+<h2 class="font-headline text-2xl text-on-surface-variant">Pain Level</h2>
+<span class="font-['Instrument_Serif'] text-3xl text-primary">4/10</span>
+</div>
+<div class="px-2">
+<input class="w-full h-2 bg-surface-container-highest rounded-full appearance-none cursor-pointer accent-primary" max="10" min="1" type="range" value="4"/>
+<div class="flex justify-between mt-4 text-2xl">
+<span>😊</span>
+<span>😐</span>
+<span>😟</span>
+<span>😫</span>
+</div>
+</div>
+</section>
+<!-- Mood Grid -->
+<section class="space-y-6">
+<h2 class="font-headline text-2xl text-on-surface-variant">Mood</h2>
+<div class="grid grid-cols-3 gap-4">
+<button class="glass-card p-6 rounded-xl flex flex-col items-center gap-2 hover:bg-secondary-container transition-colors">
+<span class="text-3xl">✨</span>
+<span class="text-xs font-semibold text-on-surface-variant">Happy</span>
+</button>
+<button class="glass-card p-6 rounded-xl flex flex-col items-center gap-2 bg-secondary-container">
+<span class="text-3xl">😴</span>
+<span class="text-xs font-semibold text-on-secondary-container">Tired</span>
+</button>
+<button class="glass-card p-6 rounded-xl flex flex-col items-center gap-2 hover:bg-secondary-container transition-colors">
+<span class="text-3xl">🌪️</span>
+<span class="text-xs font-semibold text-on-surface-variant">Anxious</span>
+</button>
+<button class="glass-card p-6 rounded-xl flex flex-col items-center gap-2 hover:bg-secondary-container transition-colors">
+<span class="text-3xl">☁️</span>
+<span class="text-xs font-semibold text-on-surface-variant">Calm</span>
+</button>
+<button class="glass-card p-6 rounded-xl flex flex-col items-center gap-2 hover:bg-secondary-container transition-colors">
+<span class="text-3xl">🍕</span>
+<span class="text-xs font-semibold text-on-surface-variant">Cravings</span>
+</button>
+<button class="glass-card p-6 rounded-xl flex flex-col items-center gap-2 hover:bg-secondary-container transition-colors">
+<span class="text-3xl">🥺</span>
+<span class="text-xs font-semibold text-on-surface-variant">Sensitive</span>
+</button>
+<button class="glass-card p-6 rounded-xl flex flex-col items-center gap-2 hover:bg-secondary-container transition-colors">
+<span class="text-3xl">⚡️</span>
+<span class="text-xs font-semibold text-on-surface-variant">Energetic</span>
+</button>
+<button class="glass-card p-6 rounded-xl flex flex-col items-center gap-2 hover:bg-secondary-container transition-colors">
+<span class="text-3xl">🧘‍♀️</span>
+<span class="text-xs font-semibold text-on-surface-variant">Focused</span>
+</button>
+<button class="glass-card p-6 rounded-xl flex flex-col items-center gap-2 hover:bg-secondary-container transition-colors">
+<span class="text-3xl">🫠</span>
+<span class="text-xs font-semibold text-on-surface-variant">Overwhelmed</span>
+</button>
+</div>
+</section>
+<!-- Symptoms Horizontal List -->
+<section class="space-y-6">
+<h2 class="font-headline text-2xl text-on-surface-variant">Symptoms</h2>
+<div class="flex gap-3 overflow-x-auto no-scrollbar pb-2">
+<button class="px-6 py-3 rounded-full bg-surface-container-highest text-on-surface-variant text-sm font-medium whitespace-nowrap border border-transparent active:border-primary/20">Cramps</button>
+<button class="px-6 py-3 rounded-full bg-primary text-on-primary text-sm font-medium whitespace-nowrap shadow-sm">Bloating</button>
+<button class="px-6 py-3 rounded-full bg-surface-container-highest text-on-surface-variant text-sm font-medium whitespace-nowrap">Acne</button>
+<button class="px-6 py-3 rounded-full bg-surface-container-highest text-on-surface-variant text-sm font-medium whitespace-nowrap">Headache</button>
+<button class="px-6 py-3 rounded-full bg-surface-container-highest text-on-surface-variant text-sm font-medium whitespace-nowrap">Nausea</button>
+<button class="px-6 py-3 rounded-full bg-surface-container-highest text-on-surface-variant text-sm font-medium whitespace-nowrap">Backache</button>
+</div>
+</section>
+<!-- Notes Section -->
+<section class="space-y-6">
+<h2 class="font-headline text-2xl text-on-surface-variant">Journal thoughts</h2>
+<textarea class="w-full min-h-[160px] p-6 bg-surface-container-low border-none rounded-xl focus:ring-2 focus:ring-primary/20 focus:bg-surface-lowest text-on-surface placeholder:text-outline/60 resize-none font-body" placeholder="How's your mind today? Write it down here..."></textarea>
+</section>
+<!-- Save Button -->
+<section class="pt-4">
+<button class="w-full py-5 rounded-full bg-gradient-to-br from-primary to-primary-container text-on-primary font-bold text-lg shadow-[0px_8px_24px_rgba(142,74,75,0.25)] hover:opacity-90 active:scale-[0.98] transition-all">
+                Save Entry
+            </button>
+</section>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 pb-6 pt-3 bg-white/80 dark:bg-zinc-900/80 backdrop-blur-2xl rounded-t-[3rem] shadow-[0px_-12px_32px_rgba(244,194,194,0.1)]">
+<!-- Home -->
+<a class="flex flex-col items-center justify-center text-zinc-400 dark:text-zinc-500 hover:text-[#F4C2C2] transition-colors" href="#">
+<span class="material-symbols-outlined">home_health</span>
+<span class="font-['Manrope'] text-[10px] font-semibold tracking-wide uppercase">Home</span>
+</a>
+<!-- Log (Active) -->
+<a class="flex flex-col items-center justify-center bg-[#F4C2C2]/20 text-[#F4C2C2] rounded-full px-5 py-2 Active: scale-90 duration-300 ease-out" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">edit_note</span>
+<span class="font-['Manrope'] text-[10px] font-semibold tracking-wide uppercase">Log</span>
+</a>
+<!-- Calendar -->
+<a class="flex flex-col items-center justify-center text-zinc-400 dark:text-zinc-500 hover:text-[#F4C2C2] transition-colors" href="#">
+<span class="material-symbols-outlined">calendar_today</span>
+<span class="font-['Manrope'] text-[10px] font-semibold tracking-wide uppercase">Calendar</span>
+</a>
+<!-- Agent -->
+<a class="flex flex-col items-center justify-center text-zinc-400 dark:text-zinc-500 hover:text-[#F4C2C2] transition-colors" href="#">
+<span class="material-symbols-outlined">smart_toy</span>
+<span class="font-['Manrope'] text-[10px] font-semibold tracking-wide uppercase">Agent</span>
+</a>
+<!-- Wellness -->
+<a class="flex flex-col items-center justify-center text-zinc-400 dark:text-zinc-500 hover:text-[#F4C2C2] transition-colors" href="#">
+<span class="material-symbols-outlined">self_care</span>
+<span class="font-['Manrope'] text-[10px] font-semibold tracking-wide uppercase">Wellness</span>
+</a>
+</nav>
+<!-- Decorative Background Bloom -->
+<div class="fixed top-[-10%] right-[-10%] w-[60%] h-[40%] bg-primary-container/20 blur-[120px] -z-10 rounded-full"></div>
+<div class="fixed bottom-[-5%] left-[-10%] w-[50%] h-[30%] bg-secondary-container/30 blur-[100px] -z-10 rounded-full"></div>
+</body></html>
