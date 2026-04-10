@@ -44,7 +44,7 @@ export default function HormonalSkinTracker() {
 {/*  Acne Log  */}
 <button className="group bg-surface-container hover:bg-primary-container/20 transition-all p-6 rounded-xl text-left flex items-start justify-between border border-transparent hover:border-primary-container/30">
 <div>
-<span className="material-symbols-outlined text-primary mb-4 block text-3xl" data-icon="radio_button_checked">radio_button_checked</span>
+<span className="material-symbols-outlined text-primary mb-4 block text-3xl" data-icon="radio_button_defaultChecked">radio_button_defaultChecked</span>
 <h4 className="font-headline text-xl mb-1">Acne</h4>
 <p className="text-sm text-on-surface-variant">Log flare-ups</p>
 </div>
@@ -182,7 +182,24 @@ export default function HormonalSkinTracker() {
 </div>
 </main>
 {/*  BottomNavBar  */}
-
+<nav className="fixed bottom-0 left-0 w-full flex justify-around items-center px-4 pb-6 pt-4 bg-white/70 dark:bg-stone-950/70 backdrop-blur-2xl rounded-t-[3rem] z-50 shadow-[0px_-12px_32px_rgba(29,27,27,0.06)]">
+<div className="flex flex-col items-center justify-center text-stone-400 dark:text-stone-500 px-5 py-2 hover:text-stone-600 dark:hover:text-stone-300 transition-colors">
+<span className="material-symbols-outlined mb-1" data-icon="radio_button_defaultChecked">radio_button_defaultChecked</span>
+<span className="font-['Manrope'] text-[10px] font-semibold uppercase tracking-widest">Cycle</span>
+</div>
+<div className="flex flex-col items-center justify-center text-stone-400 dark:text-stone-500 px-5 py-2 hover:text-stone-600 dark:hover:text-stone-300 transition-colors">
+<span className="material-symbols-outlined mb-1" data-icon="self_improvement">self_improvement</span>
+<span className="font-['Manrope'] text-[10px] font-semibold uppercase tracking-widest">Wellness</span>
+</div>
+<div className="flex flex-col items-center justify-center bg-[#F4C2C2]/20 text-stone-900 dark:text-[#F4C2C2] rounded-full px-5 py-2">
+<span className="material-symbols-outlined mb-1" data-icon="face_6" style={{ fontVariationSettings: "'FILL' 1" }}>face_6</span>
+<span className="font-['Manrope'] text-[10px] font-semibold uppercase tracking-widest">Skin</span>
+</div>
+<div className="flex flex-col items-center justify-center text-stone-400 dark:text-stone-500 px-5 py-2 hover:text-stone-600 dark:hover:text-stone-300 transition-colors">
+<span className="material-symbols-outlined mb-1" data-icon="air">air</span>
+<span className="font-['Manrope'] text-[10px] font-semibold uppercase tracking-widest">Sanctuary</span>
+</div>
+</nav>
 {/*  Tailwind Grid Overrides for Heatmap  */}
     </>
   );

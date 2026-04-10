@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>RoseCycle | Harmonize Your Life with Your Cycle</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&amp;family=Manrope:wght@300;400;500;600;700&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'midnight-rose': {
+                            50: '#fff5f5',
+                            100: '#ffeaea',
+                            200: '#ffd0d0',
+                            300: '#ffabab',
+                            400: '#ff7777',
+                            500: '#8e4a4b', // Primary from Screen 9
+                            600: '#723435',
+                            700: '#562526',
+                            800: '#3a090d',
+                            900: '#1d0406',
+                        },
+                        'soft-blush': '#fef8f8',
+                        'dusty-rose': '#ffdad9',
+                        'sage-mist': '#ceeacf',
+                    },
+                    fontFamily: {
+                        'display': ['Instrument Serif', 'serif'],
+                        'body': ['Manrope', 'sans-serif'],
+                    },
+                    borderRadius: {
+                        'editorial': '2.5rem',
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+        }
+        .text-gradient {
+            background: linear-gradient(135deg, #8e4a4b 0%, #3a090d 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .hero-bloom {
+            background: radial-gradient(circle at 50% 50%, rgba(255, 218, 217, 0.4) 0%, rgba(254, 248, 248, 0) 70%);
+        }
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.6);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.4);
+        }
+        .floating-flower {
+            animation: float 20s ease-in-out infinite;
+        }
+        @keyframes float {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(5deg); }
+        }
+    </style>
+</head>
+<body class="bg-soft-blush font-body text-midnight-rose-900 selection:bg-midnight-rose-100">
+<!-- Subtle Background Decor -->
+<div class="fixed inset-0 pointer-events-none -z-10 overflow-hidden">
+<div class="absolute top-[-10%] right-[-5%] w-[40%] h-[40%] bg-dusty-rose/30 blur-[120px] rounded-full"></div>
+<div class="absolute bottom-[-10%] left-[-5%] w-[40%] h-[40%] bg-sage-mist/20 blur-[120px] rounded-full"></div>
+<div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full hero-bloom opacity-60"></div>
+</div>
+<!-- Navigation -->
+<nav class="flex justify-between items-center px-8 md:px-16 py-8 relative z-50">
+<div class="font-display text-3xl italic text-midnight-rose-500">RoseCycle</div>
+<div class="hidden md:flex gap-10 text-sm font-medium tracking-wide uppercase text-midnight-rose-700">
+<a class="hover:text-midnight-rose-500 transition-colors" href="#">Method</a>
+<a class="hover:text-midnight-rose-500 transition-colors" href="#">Features</a>
+<a class="hover:text-midnight-rose-500 transition-colors" href="#">Science</a>
+</div>
+<button class="bg-midnight-rose-500 text-white px-8 py-3 rounded-full text-sm font-semibold hover:bg-midnight-rose-600 transition-all shadow-lg shadow-midnight-rose-200">
+            Get Started
+        </button>
+</nav>
+<!-- Hero Section -->
+<section class="max-w-7xl mx-auto px-8 md:px-16 pt-12 pb-24 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+<div class="space-y-10">
+<span class="inline-block py-2 px-5 bg-dusty-rose text-midnight-rose-700 text-xs font-bold uppercase tracking-[0.2em] rounded-full">The Digital Sanctuary</span>
+<h1 class="font-display text-6xl md:text-8xl leading-[1.05] text-midnight-rose-900">
+                Harmonize your life with your <span class="italic text-midnight-rose-500">natural rhythm.</span>
+</h1>
+<p class="text-lg md:text-xl text-midnight-rose-700/80 max-w-lg leading-relaxed font-light">
+                RoseCycle isn't just a tracker. It's a personalized endocrine-aware companion that optimizes your productivity, nutrition, and well-being based on your unique cycle phases.
+            </p>
+<div class="flex flex-col sm:flex-row gap-5 pt-4">
+<button class="flex items-center justify-center gap-3 bg-midnight-rose-900 text-white px-10 py-5 rounded-full hover:bg-black transition-all group">
+<span class="material-symbols-outlined">apple</span>
+<span class="font-semibold">Download App</span>
+</button>
+<button class="flex items-center justify-center gap-2 text-midnight-rose-900 font-semibold px-8 py-5 group">
+                    View Demo <span class="material-symbols-outlined group-hover:translate-x-1 transition-transform">arrow_forward</span>
+</button>
+</div>
+</div>
+<!-- Enhanced App Preview (Mocking SCREEN_9 styles) -->
+<div class="relative">
+<!-- Decorative blur behind the phone -->
+<div class="absolute -inset-10 bg-gradient-to-tr from-midnight-rose-200 to-sage-mist/40 blur-3xl opacity-50 rounded-full"></div>
+<!-- High-Fidelity Mockup Panel -->
+<div class="relative bg-white/40 p-3 rounded-[3rem] shadow-2xl shadow-midnight-rose-100 backdrop-blur-xl border border-white/50">
+<div class="bg-soft-blush rounded-[2.5rem] overflow-hidden shadow-inner aspect-[9/16] max-w-[340px] mx-auto relative border border-midnight-rose-50 flex flex-col">
+<!-- Screen Content Mirroring Dashboard (SCREEN_9) -->
+<div class="p-6 space-y-4 flex-1">
+<!-- Briefing Card -->
+<div class="bg-white/70 p-5 rounded-2xl shadow-[0_8px_20px_-10px_rgba(142,74,75,0.15)] border border-white/80">
+<div class="flex items-center gap-3 mb-2">
+<div class="w-8 h-8 bg-midnight-rose-100 rounded-full flex items-center justify-center">
+<span class="material-symbols-outlined text-midnight-rose-500 text-sm">smart_toy</span>
+</div>
+<span class="text-[10px] uppercase tracking-widest text-midnight-rose-400 font-bold">Briefing</span>
+</div>
+<p class="font-display text-lg leading-snug">Day 14. <span class="italic text-midnight-rose-500">Energy peaking.</span> Perfect day for social events.</p>
+</div>
+<!-- Phase Dial -->
+<div class="bg-white/40 flex-1 rounded-2xl p-6 flex flex-col items-center justify-center relative">
+<div class="text-center mb-4">
+<h3 class="font-display text-3xl">Day 14</h3>
+<p class="text-[10px] uppercase tracking-widest text-midnight-rose-300">Ovulatory</p>
+</div>
+<div class="relative w-36 h-36">
+<svg class="w-full h-full -rotate-90" viewbox="0 0 100 100">
+<circle cx="50" cy="50" fill="none" r="45" stroke="#f2ecec" stroke-width="4"></circle>
+<path d="M 50,5 A 45,45 0 0,1 95,50" fill="none" stroke="#8e4a4b" stroke-linecap="round" stroke-width="6"></path>
+</svg>
+<div class="absolute inset-2 rounded-full overflow-hidden">
+<img alt="Flower Icon" class="w-full h-full object-cover grayscale-[0.2]" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD7TyOcKuHKuPDV9ZiM_CabrTcBeAuVtCA7GB7tQLxIEvyZ52TKsSFvYvls0N51FJXLdL86esYlzFohEPmbescRq4q-g5nOL_aeb-lnqoqRfNYC0_5XykHtwt35MFze978TL5YkSv5OwxuajRYUpyvGRxNUWl422cP7y0Cnhsrln_7xeXR3rbANurfOwhRHKgiSYDQSfIpO0J8k0jh9qkBpCuz8Kq4yRWj96Q1YHoHqiiXT5vPATGmMu5Xrlvchu2DYBDs0_-TOO-o"/>
+</div>
+</div>
+</div>
+<!-- Insight Card -->
+<div class="bg-sage-mist/40 p-4 rounded-2xl">
+<div class="flex items-center gap-2 mb-2">
+<span class="material-symbols-outlined text-green-700 text-xs">auto_awesome</span>
+<span class="text-[10px] font-bold text-green-800">Proactive Insight</span>
+</div>
+<div class="h-1.5 w-full bg-white/40 rounded-full overflow-hidden">
+<div class="h-full bg-green-600/40 w-2/3"></div>
+</div>
+</div>
+</div>
+<!-- App Nav Bar -->
+<div class="p-4 bg-white/80 border-t border-white/50 flex justify-between px-6">
+<span class="material-symbols-outlined text-midnight-rose-500" style="font-variation-settings:'FILL' 1">home_health</span>
+<span class="material-symbols-outlined text-slate-300">calendar_today</span>
+<span class="material-symbols-outlined text-slate-300">smart_toy</span>
+<span class="material-symbols-outlined text-slate-300">self_care</span>
+</div>
+</div>
+</div>
+<!-- Floating Decoration -->
+<div class="absolute -bottom-6 -left-6 w-24 h-24 floating-flower opacity-20">
+<svg class="text-midnight-rose-300" fill="currentColor" viewbox="0 0 100 100">
+<path d="M50 0C55 25 75 45 100 50C75 55 55 75 50 100C45 75 25 55 0 50C25 45 45 25 50 0Z"></path>
+</svg>
+</div>
+</div>
+</section>
+<!-- Content Sections: Improved rhythm and spacing -->
+<section class="max-w-7xl mx-auto px-8 md:px-16 py-32 space-y-32">
+<!-- Feature 1 -->
+<div class="grid grid-cols-1 md:grid-cols-12 gap-12 items-center">
+<div class="md:col-span-5 space-y-6">
+<span class="text-xs font-bold tracking-[0.3em] text-midnight-rose-400 uppercase">Phase Intelligence</span>
+<h2 class="font-display text-5xl text-midnight-rose-900 leading-tight">Living in Sync, <br/><span class="italic text-midnight-rose-500">Not in Struggle.</span></h2>
+<p class="text-midnight-rose-700/80 leading-relaxed font-light text-lg">
+                    Discover why your energy fluctuates and learn how to schedule your life's big moments—interviews, workouts, or rest—around your physiological strengths.
+                </p>
+</div>
+<div class="md:col-span-6 md:col-start-7">
+<div class="bg-white/40 rounded-editorial p-10 border border-white/80 shadow-xl shadow-midnight-rose-100/30">
+<div class="grid grid-cols-2 gap-6">
+<div class="p-6 bg-white/80 rounded-3xl space-y-3">
+<span class="material-symbols-outlined text-midnight-rose-400">fitness_center</span>
+<h4 class="font-semibold text-sm uppercase tracking-wider">Workouts</h4>
+<p class="text-xs text-midnight-rose-600">Switch to HIIT during Ovulation for peak performance.</p>
+</div>
+<div class="p-6 bg-dusty-rose/40 rounded-3xl space-y-3">
+<span class="material-symbols-outlined text-midnight-rose-400">restaurant</span>
+<h4 class="font-semibold text-sm uppercase tracking-wider">Nutrition</h4>
+<p class="text-xs text-midnight-rose-600">Magnesium-rich foods recommended for Luteal support.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Feature 2 -->
+<div class="grid grid-cols-1 md:grid-cols-12 gap-12 items-center">
+<div class="md:col-span-6 order-2 md:order-1">
+<div class="relative group">
+<div class="absolute -inset-4 bg-sage-mist/20 blur-2xl rounded-full opacity-0 group-hover:opacity-100 transition-opacity"></div>
+<img alt="Floral Sanctuary Image" class="relative rounded-editorial w-full aspect-video object-cover shadow-2xl saturate-[0.8]" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD7TyOcKuHKuPDV9ZiM_CabrTcBeAuVtCA7GB7tQLxIEvyZ52TKsSFvYvls0N51FJXLdL86esYlzFohEPmbescRq4q-g5nOL_aeb-lnqoqRfNYC0_5XykHtwt35MFze978TL5YkSv5OwxuajRYUpyvGRxNUWl422cP7y0Cnhsrln_7xeXR3rbANurfOwhRHKgiSYDQSfIpO0J8k0jh9qkBpCuz8Kq4yRWj96Q1YHoHqiiXT5vPATGmMu5Xrlvchu2DYBDs0_-TOO-o"/>
+</div>
+</div>
+<div class="md:col-span-5 md:col-start-8 space-y-6 order-1 md:order-2">
+<span class="text-xs font-bold tracking-[0.3em] text-midnight-rose-400 uppercase">Science-Backed Insights</span>
+<h2 class="font-display text-5xl text-midnight-rose-900 leading-tight">Your Body <br/><span class="italic text-midnight-rose-500">Deciphered.</span></h2>
+<p class="text-midnight-rose-700/80 leading-relaxed font-light text-lg">
+                    Advanced algorithms analyze your data to provide proactive health tips, from skin care routines to mood forecasting.
+                </p>
+<ul class="space-y-4 pt-4">
+<li class="flex items-center gap-4 text-midnight-rose-800">
+<span class="material-symbols-outlined text-midnight-rose-400">check_circle</span>
+<span>Personalized daily briefings</span>
+</li>
+<li class="flex items-center gap-4 text-midnight-rose-800">
+<span class="material-symbols-outlined text-midnight-rose-400">check_circle</span>
+<span>Symptom-prediction modeling</span>
+</li>
+</ul>
+</div>
+</div>
+</section>
+<!-- Final Call to Action -->
+<section class="max-w-5xl mx-auto px-8 py-32 text-center">
+<div class="bg-midnight-rose-900 text-white rounded-[3rem] p-16 md:p-24 relative overflow-hidden">
+<div class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/natural-paper.png')] opacity-10"></div>
+<div class="absolute -top-24 -left-24 w-64 h-64 bg-midnight-rose-500/20 blur-[100px] rounded-full"></div>
+<div class="absolute -bottom-24 -right-24 w-64 h-64 bg-midnight-rose-500/20 blur-[100px] rounded-full"></div>
+<div class="relative z-10 max-w-2xl mx-auto space-y-8">
+<h2 class="font-display text-5xl md:text-7xl leading-tight">Begin your journey to <span class="italic text-midnight-rose-200">harmony.</span></h2>
+<p class="text-midnight-rose-100/70 text-lg md:text-xl font-light">
+                    Join over 500,000 women who have reclaimed their power through cycle-awareness.
+                </p>
+<div class="flex flex-col sm:flex-row gap-4 justify-center pt-8">
+<button class="bg-white text-midnight-rose-900 px-12 py-5 rounded-full font-bold text-lg hover:scale-105 transition-transform">
+                        Download Now
+                    </button>
+<button class="border border-white/20 bg-white/5 backdrop-blur-sm text-white px-12 py-5 rounded-full font-bold text-lg hover:bg-white/10 transition-colors">
+                        Learn More
+                    </button>
+</div>
+</div>
+</div>
+</section>
+<!-- Footer -->
+<footer class="max-w-7xl mx-auto px-8 md:px-16 py-20 border-t border-midnight-rose-100 flex flex-col md:flex-row justify-between items-center gap-8">
+<div class="font-display text-2xl italic text-midnight-rose-400">RoseCycle</div>
+<div class="flex gap-10 text-[10px] font-bold uppercase tracking-widest text-midnight-rose-300">
+<a class="hover:text-midnight-rose-500" href="#">Privacy Policy</a>
+<a class="hover:text-midnight-rose-500" href="#">Terms of Service</a>
+<a class="hover:text-midnight-rose-500" href="#">Support</a>
+</div>
+<p class="text-xs text-midnight-rose-300">© 2024 RoseCycle Digital Sanctuary. All rights reserved.</p>
+</footer>
+</body></html>

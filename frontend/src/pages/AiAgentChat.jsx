@@ -1,7 +1,54 @@
-import React from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
+import { useAuth } from '@clerk/clerk-react';
 
 export default function AiAgentChat() {
+  const [messages, setMessages] = useState([
+    {
+      role: 'ai',
+      text: "Hi! I'm here to help you understand your cycle.\nYou can ask me things like \"Why do I feel tired today?\" or \"What's the luteal phase?\""
+    }
+  ]);
+  const [inputVal, setInputVal] = useState("");
+  const ws = useRef(null);
+  const messagesEndRef = useRef(null);
+  
+  useEffect(() => {
+    // Initialize standard WebSocket. In a real environment, URL comes from .env
+    ws.current = new WebSocket('ws://127.0.0.1:8000/api/v1/chat/stream');
+
+    ws.current.onmessage = (event) => {
+      const data = JSON.parse(event.data);
+      if (data.type === 'message') {
+        setMessages((prev) => [...prev, { role: 'ai', text: data.content }]);
+      }
+    };
+
+    return () => {
+      if (ws.current) {
+        ws.current.close();
+      }
+    };
+  }, []);
+
+  useEffect(() => {
+    messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
+  }, [messages]);
+
+  const handleSend = () => {
+    if (!inputVal.trim()) return;
+    
+    // Add user message to UI
+    setMessages((prev) => [...prev, { role: 'user', text: inputVal }]);
+    
+    // Send to WebSocket LangGraph agent
+    if (ws.current && ws.current.readyState === WebSocket.OPEN) {
+      ws.current.send(JSON.stringify({ message: inputVal }));
+    }
+    
+    setInputVal("");
+  };
+
   return (
     <>
       {/*  TopNavBar  */}
@@ -20,31 +67,42 @@ export default function AiAgentChat() {
 <main className="flex-grow pt-24 pb-44 px-6 max-w-2xl mx-auto w-full flex flex-col justify-end">
 {/*  Conversation Thread  */}
 <div className="space-y-8 flex flex-col">
-{/*  Rose Intro Message  */}
-<div className="flex flex-col gap-4 items-start max-w-[85%]">
-<div className="flex items-center gap-3 ml-2">
-<div className="w-10 h-10 rounded-full bg-primary-container flex items-center justify-center">
-<span className="material-symbols-outlined text-primary" >smart_toy</span>
-</div>
-<span className="font-label text-label-md text-on-surface-variant font-semibold">Rose</span>
-</div>
-<div className="glass p-6 rounded-t-xl rounded-br-xl shadow-sm border-0">
-<h1 className="font-headline text-headline-md mb-3 text-on-surface">Hi! I'm here to help you understand your cycle.</h1>
-<p className="body-lg text-on-surface-variant">You can ask me things like <span className="italic text-primary">"Why do I feel tired today?"</span> or <span className="italic text-primary">"What's the luteal phase?"</span></p>
-</div>
-</div>
+{messages.map((msg, idx) => (
+  msg.role === 'ai' ? (
+    <div key={idx} className="flex flex-col gap-4 items-start max-w-[85%]">
+      <div className="flex items-center gap-3 ml-2">
+        <div className="w-10 h-10 rounded-full bg-primary-container flex items-center justify-center">
+        <span className="material-symbols-outlined text-primary" >smart_toy</span>
+        </div>
+        <span className="font-label text-label-md text-on-surface-variant font-semibold">Rose</span>
+      </div>
+      <div className="glass p-6 rounded-t-xl rounded-br-xl shadow-sm border-0">
+        <p className="body-lg text-on-surface">{msg.text}</p>
+      </div>
+    </div>
+  ) : (
+    <div key={idx} className="flex flex-col gap-4 items-end self-end max-w-[85%]">
+      <div className="glass bg-primary/10 p-6 rounded-t-xl rounded-bl-xl shadow-sm border-0">
+        <p className="body-lg text-on-surface">{msg.text}</p>
+      </div>
+    </div>
+  )
+))}
+<div ref={messagesEndRef} />
 {/*  Suggestion Chips Container  */}
+{messages.length <= 1 && (
 <div className="flex flex-wrap gap-2 mt-4">
-<button className="glass px-5 py-2.5 rounded-full text-label-md font-semibold text-primary border-0 hover:bg-white transition-colors">
+<button onClick={() => { setInputVal("Explain cycle phases"); handleSend(); }} className="glass px-5 py-2.5 rounded-full text-label-md font-semibold text-primary border-0 hover:bg-white transition-colors">
                     Phase explainer
                 </button>
-<button className="glass px-5 py-2.5 rounded-full text-label-md font-semibold text-primary border-0 hover:bg-white transition-colors">
+<button onClick={() => { setInputVal("Give me nutrition tips"); handleSend(); }} className="glass px-5 py-2.5 rounded-full text-label-md font-semibold text-primary border-0 hover:bg-white transition-colors">
                     Nutrition tips
                 </button>
-<button className="glass px-5 py-2.5 rounded-full text-label-md font-semibold text-primary border-0 hover:bg-white transition-colors">
+<button onClick={() => { setInputVal("Check my symptoms"); handleSend(); }} className="glass px-5 py-2.5 rounded-full text-label-md font-semibold text-primary border-0 hover:bg-white transition-colors">
                     Symptom checker
                 </button>
 </div>
+)}
 </div>
 </main>
 {/*  Input and Navigation Floating Container  */}
@@ -55,8 +113,15 @@ export default function AiAgentChat() {
 <button className="p-2 text-primary hover:bg-primary-container/20 rounded-full transition-colors">
 <span className="material-symbols-outlined">mic</span>
 </button>
-<input className="flex-grow bg-transparent border-none focus:ring-0 text-on-surface placeholder:text-outline py-2 px-2 font-body" placeholder="Message Rose..." type="text"/>
-<button className="bg-primary hover:bg-on-primary-fixed-variant text-on-primary w-11 h-11 rounded-full flex items-center justify-center shadow-md transition-all active:scale-90">
+<input 
+  className="flex-grow bg-transparent border-none focus:ring-0 text-on-surface placeholder:text-outline py-2 px-2 font-body" 
+  placeholder="Message Rose..." 
+  type="text"
+  value={inputVal}
+  onChange={(e) => setInputVal(e.target.value)}
+  onKeyDown={(e) => e.key === 'Enter' && handleSend()}
+/>
+<button onClick={handleSend} className="bg-primary hover:bg-on-primary-fixed-variant text-on-primary w-11 h-11 rounded-full flex items-center justify-center shadow-md transition-all active:scale-90">
 <span className="material-symbols-outlined">arrow_upward</span>
 </button>
 </div>

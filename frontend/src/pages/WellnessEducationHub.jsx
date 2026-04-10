@@ -50,7 +50,7 @@ export default function WellnessEducationHub() {
 {/*  Exercise Card  */}
 <div className="md:col-span-4 rounded-xl bg-secondary-container/30 p-8 flex flex-col justify-between border border-outline-variant/10">
 <div>
-<span className="material-symbols-outlined text-secondary text-4xl mb-6" >self_care</span>
+<span className="material-symbols-outlined text-secondary text-4xl mb-6" style={{ fontVariationSettings: "'FILL' 0" }}>self_care</span>
 <h3 className="font-headline text-2xl text-on-secondary-container mb-4">Slow Flow Yoga</h3>
 <p className="text-on-secondary-container/80 text-sm leading-relaxed">During the luteal phase, opt for cortisol-conscious movement. 20 minutes of restorative stretching.</p>
 </div>
@@ -182,7 +182,29 @@ export default function WellnessEducationHub() {
 </section>
 </main>
 {/*  BottomNavBar (Shared Component)  */}
-
+<nav className="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 pb-6 pt-3 bg-white/80 dark:bg-zinc-900/80 backdrop-blur-2xl rounded-t-[3rem] shadow-[0px_-12px_32px_rgba(244,194,194,0.1)]">
+<div className="flex flex-col items-center justify-center text-zinc-400 dark:text-zinc-500 hover:text-[#F4C2C2] transition-colors active:scale-90 duration-300 ease-out">
+<span className="material-symbols-outlined mb-1">home_health</span>
+<span className="font-['Manrope'] text-[10px] font-semibold tracking-wide uppercase">Home</span>
+</div>
+<div className="flex flex-col items-center justify-center text-zinc-400 dark:text-zinc-500 hover:text-[#F4C2C2] transition-colors active:scale-90 duration-300 ease-out">
+<span className="material-symbols-outlined mb-1">edit_note</span>
+<span className="font-['Manrope'] text-[10px] font-semibold tracking-wide uppercase">Log</span>
+</div>
+<div className="flex flex-col items-center justify-center text-zinc-400 dark:text-zinc-500 hover:text-[#F4C2C2] transition-colors active:scale-90 duration-300 ease-out">
+<span className="material-symbols-outlined mb-1">calendar_today</span>
+<span className="font-['Manrope'] text-[10px] font-semibold tracking-wide uppercase">Calendar</span>
+</div>
+<div className="flex flex-col items-center justify-center text-zinc-400 dark:text-zinc-500 hover:text-[#F4C2C2] transition-colors active:scale-90 duration-300 ease-out">
+<span className="material-symbols-outlined mb-1">smart_toy</span>
+<span className="font-['Manrope'] text-[10px] font-semibold tracking-wide uppercase">Agent</span>
+</div>
+{/*  Active Tab: Wellness  */}
+<div className="flex flex-col items-center justify-center bg-[#F4C2C2]/20 text-[#F4C2C2] rounded-full px-5 py-2 active:scale-90 duration-300 ease-out">
+<span className="material-symbols-outlined mb-1" style={{ fontVariationSettings: "'FILL' 1" }}>self_care</span>
+<span className="font-['Manrope'] text-[10px] font-semibold tracking-wide uppercase">Wellness</span>
+</div>
+</nav>
     </>
   );
 }

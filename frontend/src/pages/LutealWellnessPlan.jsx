@@ -6,7 +6,16 @@ export default function LutealWellnessPlan() {
     <>
       <div className="phase-bloom"></div>
 {/*  Top Navigation  */}
-
+<nav className="fixed top-0 w-full z-50 bg-stone-50/80 dark:bg-stone-950/80 backdrop-blur-xl flex justify-between items-center px-6 py-4 w-full">
+<div className="flex items-center gap-2">
+<span className="material-symbols-outlined text-primary" data-icon="arrow_back">arrow_back</span>
+<span className="font-['Instrument_Serif'] italic text-2xl text-stone-800 dark:text-stone-100">RoseCycle</span>
+</div>
+<div className="flex items-center gap-6">
+<span className="material-symbols-outlined text-stone-500 dark:text-stone-400 hover:opacity-70 transition-opacity" data-icon="account_circle">account_circle</span>
+<span className="material-symbols-outlined text-stone-500 dark:text-stone-400 hover:opacity-70 transition-opacity" data-icon="settings">settings</span>
+</div>
+</nav>
 <main className="pt-24 px-6 md:px-12 max-w-5xl mx-auto">
 {/*  Hero Header  */}
 <header className="mb-12">
@@ -47,7 +56,7 @@ export default function LutealWellnessPlan() {
 </section>
 {/*  Mindset Card  */}
 <section className="md:col-span-4 bg-tertiary-fixed text-on-tertiary-fixed rounded-xl p-8 flex flex-col">
-<span className="material-symbols-outlined text-4xl mb-6" data-icon="edit_note" >edit_note</span>
+<span className="material-symbols-outlined text-4xl mb-6" data-icon="edit_note" style={{ fontVariationSettings: "'FILL' 1" }}>edit_note</span>
 <h2 className="font-headline text-3xl mb-4">Mindset</h2>
 <p className="text-md mb-8 leading-relaxed opacity-90">The "Inner Critic" can be loud now. Channel this energy into focused journaling.</p>
 <div className="space-y-6 flex-grow">
@@ -93,7 +102,24 @@ export default function LutealWellnessPlan() {
 </article>
 </main>
 {/*  Bottom Navigation  */}
-
+<nav className="fixed bottom-0 left-0 w-full flex justify-around items-center px-4 pb-6 pt-4 bg-white/70 dark:bg-stone-950/70 backdrop-blur-2xl rounded-t-[3rem] z-50 shadow-[0px_-12px_32px_rgba(29,27,27,0.06)]">
+<div className="flex flex-col items-center justify-center text-stone-400 dark:text-stone-500 px-5 py-2 hover:text-stone-600 dark:hover:text-stone-300 transition-colors">
+<span className="material-symbols-outlined mb-1" data-icon="radio_button_defaultChecked">radio_button_defaultChecked</span>
+<span className="font-['Manrope'] text-[10px] font-semibold uppercase tracking-widest">Cycle</span>
+</div>
+<div className="flex flex-col items-center justify-center bg-[#F4C2C2]/20 text-stone-900 dark:text-[#F4C2C2] rounded-full px-5 py-2">
+<span className="material-symbols-outlined mb-1" data-icon="self_improvement" style={{ fontVariationSettings: "'FILL' 1" }}>self_improvement</span>
+<span className="font-['Manrope'] text-[10px] font-semibold uppercase tracking-widest">Wellness</span>
+</div>
+<div className="flex flex-col items-center justify-center text-stone-400 dark:text-stone-500 px-5 py-2 hover:text-stone-600 dark:hover:text-stone-300 transition-colors">
+<span className="material-symbols-outlined mb-1" data-icon="face_6">face_6</span>
+<span className="font-['Manrope'] text-[10px] font-semibold uppercase tracking-widest">Skin</span>
+</div>
+<div className="flex flex-col items-center justify-center text-stone-400 dark:text-stone-500 px-5 py-2 hover:text-stone-600 dark:hover:text-stone-300 transition-colors">
+<span className="material-symbols-outlined mb-1" data-icon="air">air</span>
+<span className="font-['Manrope'] text-[10px] font-semibold uppercase tracking-widest">Sanctuary</span>
+</div>
+</nav>
     </>
   );
 }

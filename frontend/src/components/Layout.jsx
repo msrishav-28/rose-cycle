@@ -1,7 +1,10 @@
 import React from 'react';
-import { Outlet, NavLink } from 'react-router-dom';
+import { Outlet, NavLink, useNavigate } from 'react-router-dom';
+import { useUser } from '@clerk/clerk-react';
 
 export default function Layout() {
+  const navigate = useNavigate();
+  const { user } = useUser();
   const getNavClasses = ({ isActive }) => 
     isActive 
       ? "flex flex-col items-center justify-center bg-[#F4C2C2]/20 text-[#F4C2C2] rounded-full px-5 py-2 active:scale-90 duration-300 ease-out"
@@ -16,7 +19,7 @@ export default function Layout() {
           <button className="text-slate-400 hover:opacity-80 transition-opacity scale-95 active:transition-transform">
             <span className="material-symbols-outlined" data-icon="dark_mode">dark_mode</span>
           </button>
-          <button className="text-slate-400 hover:opacity-80 transition-opacity scale-95 active:transition-transform">
+          <button onClick={() => navigate('/settings-privacy')} className="text-slate-400 hover:opacity-80 transition-opacity scale-95 active:transition-transform">
             <span className="material-symbols-outlined" data-icon="account_circle">account_circle</span>
           </button>
         </div>

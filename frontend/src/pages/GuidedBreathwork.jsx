@@ -1,7 +1,39 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
 export default function GuidedBreathwork() {
+  const [isPlaying, setIsPlaying] = useState(false);
+  const [phaseIndex, setPhaseIndex] = useState(0); // 0=In, 1=Hold, 2=Out, 3=Hold
+  const [timeLeft, setTimeLeft] = useState(4);
+
+  const phases = [
+    { name: "Inhale", short: "In" },
+    { name: "Hold", short: "Hold" },
+    { name: "Exhale", short: "Out" },
+    { name: "Hold", short: "Hold" }
+  ];
+
+  useEffect(() => {
+    let interval;
+    if (isPlaying) {
+      interval = setInterval(() => {
+        setTimeLeft((prev) => {
+          if (prev <= 1) {
+            setPhaseIndex((prevIdx) => (prevIdx + 1) % 4);
+            return 4; // reset timer to 4
+          }
+          return prev - 1;
+        });
+      }, 1000);
+    }
+    return () => clearInterval(interval);
+  }, [isPlaying]);
+
+  const togglePlay = () => setIsPlaying(!isPlaying);
+
+  const orbScaleClass = isPlaying ? "scale-[1.10]" : "scale-100";
+  // Transition orbit size slightly during execution
+
   return (
     <>
       {/*  TopNavBar (Shared Component Shell)  */}
@@ -37,11 +69,11 @@ export default function GuidedBreathwork() {
 {/*  Outer Ring (Glassmorphism)  */}
 <div className="absolute inset-0 rounded-full border border-outline-variant/15 scale-110"></div>
 {/*  Main Breathing Orb  */}
-<div className="w-full h-full rounded-full bg-gradient-to-br from-secondary-fixed to-secondary-container flex items-center justify-center shadow-2xl shadow-secondary-fixed/30 relative">
+<div className={`w-full h-full rounded-full bg-gradient-to-br from-secondary-fixed to-secondary-container flex items-center justify-center shadow-2xl shadow-secondary-fixed/30 relative transition-transform duration-1000 ease-in-out ${orbScaleClass}`}>
 {/*  Glass Overlay  */}
 <div className="absolute inset-4 rounded-full bg-white/20 backdrop-blur-md border border-white/30 flex flex-col items-center justify-center">
-<span className="font-['Instrument_Serif'] italic text-6xl text-on-secondary-container">Inhale</span>
-<span className="font-['Instrument_Serif'] text-2xl text-on-secondary-container/60 mt-2">4s</span>
+<span className="font-['Instrument_Serif'] italic text-6xl text-on-secondary-container">{phases[phaseIndex].name}</span>
+<span className="font-['Instrument_Serif'] text-2xl text-on-secondary-container/60 mt-2">{timeLeft}s</span>
 </div>
 </div>
 {/*  Secondary Accents  */}
@@ -49,30 +81,23 @@ export default function GuidedBreathwork() {
 </div>
 {/*  Instruction Grid (Bento Style)  */}
 <div className="grid grid-cols-2 md:grid-cols-4 gap-4 w-full">
-<div className="p-6 bg-surface-container rounded-xl flex flex-col items-center justify-center space-y-1">
-<span className="text-xs font-semibold text-secondary uppercase tracking-widest">In</span>
-<span className="font-['Instrument_Serif'] text-2xl text-on-surface">4.0</span>
-</div>
-<div className="p-6 bg-surface-container-low rounded-xl flex flex-col items-center justify-center space-y-1 border border-outline-variant/15">
-<span className="text-xs font-semibold text-on-surface-variant uppercase tracking-widest">Hold</span>
-<span className="font-['Instrument_Serif'] text-2xl text-on-surface">4.0</span>
-</div>
-<div className="p-6 bg-surface-container-low rounded-xl flex flex-col items-center justify-center space-y-1 border border-outline-variant/15">
-<span className="text-xs font-semibold text-on-surface-variant uppercase tracking-widest">Out</span>
-<span className="font-['Instrument_Serif'] text-2xl text-on-surface">4.0</span>
-</div>
-<div className="p-6 bg-surface-container-low rounded-xl flex flex-col items-center justify-center space-y-1 border border-outline-variant/15">
-<span className="text-xs font-semibold text-on-surface-variant uppercase tracking-widest">Hold</span>
-<span className="font-['Instrument_Serif'] text-2xl text-on-surface">4.0</span>
-</div>
+  {phases.map((p, idx) => {
+    const isActive = idx === phaseIndex;
+    return (
+      <div key={idx} className={`p-6 rounded-xl flex flex-col items-center justify-center space-y-1 transition-colors duration-500 ${isActive ? 'bg-surface-container' : 'bg-surface-container-low border border-outline-variant/15'}`}>
+        <span className={`text-xs font-semibold uppercase tracking-widest ${isActive ? 'text-secondary' : 'text-on-surface-variant'}`}>{p.short}</span>
+        <span className="font-['Instrument_Serif'] text-2xl text-on-surface">4.0</span>
+      </div>
+    );
+  })}
 </div>
 {/*  Audio/Control Footer  */}
 <div className="flex items-center gap-8 pt-4">
 <button className="w-12 h-12 flex items-center justify-center rounded-full bg-surface-container-highest text-on-surface-variant hover:bg-secondary-container hover:text-on-secondary-container transition-all">
 <span className="material-symbols-outlined">graphic_eq</span>
 </button>
-<button className="w-20 h-20 flex items-center justify-center rounded-full bg-gradient-to-br from-primary to-primary-container text-on-primary shadow-lg shadow-primary/20 scale-95 hover:scale-100 transition-transform">
-<span className="material-symbols-outlined !text-4xl" data-weight="fill">pause</span>
+<button onClick={togglePlay} className="w-20 h-20 flex items-center justify-center rounded-full bg-gradient-to-br from-primary to-primary-container text-on-primary shadow-lg shadow-primary/20 scale-95 hover:scale-100 transition-transform">
+<span className="material-symbols-outlined !text-4xl" data-weight="fill">{isPlaying ? "pause" : "play_arrow"}</span>
 </button>
 <button className="w-12 h-12 flex items-center justify-center rounded-full bg-surface-container-highest text-on-surface-variant hover:bg-secondary-container hover:text-on-secondary-container transition-all">
 <span className="material-symbols-outlined">timer</span>
@@ -80,8 +105,6 @@ export default function GuidedBreathwork() {
 </div>
 </section>
 </main>
-{/*  BottomNavBar (Shared Component Shell)  */}
-{/*  Determined active: Sanctuary based on 'Digital Sanctuary' theme  */}
 
 {/*  Optional Visual Texture Image (Subtle Background)  */}
 <div className="fixed inset-0 -z-20 opacity-10 pointer-events-none">

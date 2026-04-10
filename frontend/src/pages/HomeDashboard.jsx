@@ -1,7 +1,39 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import axios from 'axios';
+import { useAuth } from '@clerk/clerk-react';
 
 export default function HomeDashboard() {
+  const { getToken } = useAuth();
+  const [insight, setInsight] = useState({
+    current_day: 14,
+    phase_name: "Loading...",
+    next_period_in_days: 0,
+    proactive_insight: "Fetching your personalized cycle insights..."
+  });
+
+  useEffect(() => {
+    async function fetchData() {
+      try {
+        const token = await getToken();
+        // Fallback to local endpoint
+        const res = await axios.get('http://127.0.0.1:8000/api/v1/cycle/insights', {
+          headers: { Authorization: `Bearer ${token}` }
+        });
+        setInsight(res.data);
+      } catch (err) {
+        console.error("Failed to fetch insights", err);
+      }
+    }
+    fetchData();
+  }, [getToken]);
+
+  // Calculate coordinates for the active dot on the SVG wheel (r=45, center=50,50)
+  // Menstrual phase starts at top (50,5).
+  const theta = (insight.current_day / 28) * 2 * Math.PI;
+  const dotX = 50 + 45 * Math.cos(theta - Math.PI/2);
+  const dotY = 50 + 45 * Math.sin(theta - Math.PI/2);
+
   return (
     <>
       
@@ -19,7 +51,7 @@ export default function HomeDashboard() {
 <div>
 <p className="font-label text-xs uppercase tracking-[0.2em] text-primary mb-2">Morning Briefing</p>
 <h1 className="font-['Instrument_Serif'] text-3xl md:text-4xl text-on-surface leading-tight">
-                            Good morning! You're on <span className="text-primary italic">Cycle Day 14</span> (Ovulatory Phase). Energy is high—great time for that HIIT workout or a social event.
+                            Good morning! You're on <span className="text-primary italic">Cycle Day {insight.current_day}</span> ({insight.phase_name}). Check in below to log today's feelings.
                         </h1>
 </div>
 </div>
@@ -31,8 +63,8 @@ export default function HomeDashboard() {
 {/*  Phase Wheel (Left)  */}
 <div className="md:col-span-7 surface-container p-10 rounded-xl flex flex-col items-center justify-center relative min-h-[400px]">
 <div className="text-center mb-8">
-<h2 className="font-['Instrument_Serif'] text-5xl mb-1">Day 14</h2>
-<p className="font-label text-sm text-outline tracking-wider uppercase">Ovulatory Phase</p>
+<h2 className="font-['Instrument_Serif'] text-5xl mb-1">Day {insight.current_day}</h2>
+<p className="font-label text-sm text-outline tracking-wider uppercase">{insight.phase_name}</p>
 </div>
 <div className="relative w-64 h-64">
 {/*  Circular Wheel Representation  */}
@@ -43,8 +75,8 @@ export default function HomeDashboard() {
 <path d="M 50,5 A 45,45 0 0,1 86,23" fill="none" stroke="#8e4a4b" strokeLinecap="round" strokeWidth="4"/>
 {/*  Follicular (Days 6-13)  */}
 <path d="M 86,23 A 45,45 0 0,1 86,77" fill="none" stroke="#ceeacf" strokeLinecap="round" strokeWidth="4"/>
-{/*  Ovulation (Day 14) - Active Point  */}
-<circle className="shadow-lg" cx="95" cy="50" fill="#8e4a4b" r="5"/>
+{/*  Ovulation / Current Day Active Point  */}
+<circle className="shadow-lg transition-all duration-1000 ease-out" cx={dotX} cy={dotY} fill="#8e4a4b" r="5"/>
 {/*  Luteal (Days 15-28)  */}
 <path d="M 86,77 A 45,45 0 1,1 50,5" fill="none" stroke="#ffbccc" strokeLinecap="round" strokeWidth="4"/>
 </svg>
@@ -74,7 +106,7 @@ export default function HomeDashboard() {
 <h3 className="font-bold text-on-secondary-container">Proactive Insight</h3>
 </div>
 <p className="text-secondary leading-relaxed mb-6">
-                            Your last 3 cycles have been very regular. Based on your logs, you might experience mild skin changes in 4 days.
+                            {insight.proactive_insight}
                         </p>
 <button className="bg-on-secondary-container text-surface-container-lowest px-6 py-3 rounded-full text-sm font-bold tracking-wide">
                             Skin Care Tips
@@ -91,7 +123,7 @@ export default function HomeDashboard() {
 </div>
 <div>
 <p className="text-xs font-label text-outline uppercase tracking-wider">Next Cycle Starts</p>
-<p className="font-bold text-on-surface">Sept 28 • 14 days left</p>
+<p className="font-bold text-on-surface">In {insight.next_period_in_days} days</p>
 </div>
 </div>
 </div>
@@ -136,6 +168,7 @@ export default function HomeDashboard() {
 </div>
 </section>
 </main>
+
 
     </>
   );
