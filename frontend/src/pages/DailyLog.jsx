@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 import { useAuth } from '@clerk/clerk-react';
+import { API_BASE_URL } from '../lib/apiConfig';
 
 export default function DailyLog() {
   const { getToken } = useAuth();
@@ -20,7 +21,7 @@ export default function DailyLog() {
     setIsSaving(true);
     try {
       const token = await getToken();
-      await axios.post('http://127.0.0.1:8000/api/v1/logs', {
+      await axios.post(`${API_BASE_URL}/logs`, {
         date: new Date().toISOString().split('T')[0],
         flow: flow,
         mood: mood,

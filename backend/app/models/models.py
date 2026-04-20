@@ -1,4 +1,4 @@
-from sqlalchemy import Column, Integer, String, Dict, JSON, DateTime, Date, Boolean, ForeignKey
+from sqlalchemy import Column, Integer, String, JSON, DateTime, Date, ForeignKey
 from app.db.database import Base
 import datetime
 
@@ -17,8 +17,8 @@ class DailyLog(Base):
     id = Column(Integer, primary_key=True, index=True)
     user_id = Column(Integer, ForeignKey("users.id"))
     date = Column(Date, index=True)
-    flow = Column(String, nullable=True) # None, Light, Medium, Heavy
+    flow = Column(String, nullable=True) # None, Light, Medium, Heavy, V. Heavy
     mood = Column(String, nullable=True) # e.g. 'happy', 'tired'
-    pain_level = Column(Integer, nullable=True) # 1-4 scale
+    pain_level = Column(Integer, nullable=True) # 1-10 scale
     notes = Column(String, nullable=True)
     created_at = Column(DateTime, default=datetime.datetime.utcnow)

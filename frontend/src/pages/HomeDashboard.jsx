@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 import { useAuth } from '@clerk/clerk-react';
+import { API_BASE_URL } from '../lib/apiConfig';
 
 export default function HomeDashboard() {
   const { getToken } = useAuth();
@@ -16,8 +17,7 @@ export default function HomeDashboard() {
     async function fetchData() {
       try {
         const token = await getToken();
-        // Fallback to local endpoint
-        const res = await axios.get('http://127.0.0.1:8000/api/v1/cycle/insights', {
+        const res = await axios.get(`${API_BASE_URL}/cycle/insights`, {
           headers: { Authorization: `Bearer ${token}` }
         });
         setInsight(res.data);

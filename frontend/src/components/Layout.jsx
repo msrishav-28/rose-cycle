@@ -1,10 +1,8 @@
 import React from 'react';
 import { Outlet, NavLink, useNavigate } from 'react-router-dom';
-import { useUser } from '@clerk/clerk-react';
 
 export default function Layout() {
   const navigate = useNavigate();
-  const { user } = useUser();
   const getNavClasses = ({ isActive }) => 
     isActive 
       ? "flex flex-col items-center justify-center bg-[#F4C2C2]/20 text-[#F4C2C2] rounded-full px-5 py-2 active:scale-90 duration-300 ease-out"

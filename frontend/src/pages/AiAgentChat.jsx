@@ -1,8 +1,10 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { useAuth } from '@clerk/clerk-react';
+import { buildChatWsUrl } from '../lib/apiConfig';
 
 export default function AiAgentChat() {
+  const { getToken } = useAuth();
   const [messages, setMessages] = useState([
     {
       role: 'ai',
@@ -10,40 +12,75 @@ export default function AiAgentChat() {
     }
   ]);
   const [inputVal, setInputVal] = useState("");
+  const [isSocketReady, setIsSocketReady] = useState(false);
   const ws = useRef(null);
   const messagesEndRef = useRef(null);
   
   useEffect(() => {
-    // Initialize standard WebSocket. In a real environment, URL comes from .env
-    ws.current = new WebSocket('ws://127.0.0.1:8000/api/v1/chat/stream');
+    let isMounted = true;
 
-    ws.current.onmessage = (event) => {
-      const data = JSON.parse(event.data);
-      if (data.type === 'message') {
-        setMessages((prev) => [...prev, { role: 'ai', text: data.content }]);
+    async function connectSocket() {
+      let token = null;
+      try {
+        token = await getToken();
+      } catch {
+        token = null;
       }
-    };
+
+      ws.current = new WebSocket(buildChatWsUrl(token));
+
+      ws.current.onopen = () => {
+        if (isMounted) {
+          setIsSocketReady(true);
+        }
+      };
+
+      ws.current.onmessage = (event) => {
+        const data = JSON.parse(event.data);
+        if (data.type === 'message') {
+          setMessages((prev) => [...prev, { role: 'ai', text: data.content }]);
+        }
+      };
+
+      ws.current.onclose = () => {
+        if (isMounted) {
+          setIsSocketReady(false);
+        }
+      };
+    }
+
+    connectSocket();
 
     return () => {
+      isMounted = false;
       if (ws.current) {
         ws.current.close();
       }
     };
-  }, []);
+  }, [getToken]);
 
   useEffect(() => {
     messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
   }, [messages]);
 
-  const handleSend = () => {
-    if (!inputVal.trim()) return;
+  const handleSend = (overrideText) => {
+    const message = (overrideText ?? inputVal).trim();
+    if (!message) return;
     
     // Add user message to UI
-    setMessages((prev) => [...prev, { role: 'user', text: inputVal }]);
+    setMessages((prev) => [...prev, { role: 'user', text: message }]);
     
     // Send to WebSocket LangGraph agent
     if (ws.current && ws.current.readyState === WebSocket.OPEN) {
-      ws.current.send(JSON.stringify({ message: inputVal }));
+      ws.current.send(JSON.stringify({ message }));
+    } else {
+      setMessages((prev) => [
+        ...prev,
+        {
+          role: 'ai',
+          text: "I'm reconnecting right now. Please retry in a moment.",
+        },
+      ]);
     }
     
     setInputVal("");
@@ -92,13 +129,13 @@ export default function AiAgentChat() {
 {/*  Suggestion Chips Container  */}
 {messages.length <= 1 && (
 <div className="flex flex-wrap gap-2 mt-4">
-<button onClick={() => { setInputVal("Explain cycle phases"); handleSend(); }} className="glass px-5 py-2.5 rounded-full text-label-md font-semibold text-primary border-0 hover:bg-white transition-colors">
+<button onClick={() => handleSend("Explain cycle phases")} className="glass px-5 py-2.5 rounded-full text-label-md font-semibold text-primary border-0 hover:bg-white transition-colors">
                     Phase explainer
                 </button>
-<button onClick={() => { setInputVal("Give me nutrition tips"); handleSend(); }} className="glass px-5 py-2.5 rounded-full text-label-md font-semibold text-primary border-0 hover:bg-white transition-colors">
+<button onClick={() => handleSend("Give me nutrition tips")} className="glass px-5 py-2.5 rounded-full text-label-md font-semibold text-primary border-0 hover:bg-white transition-colors">
                     Nutrition tips
                 </button>
-<button onClick={() => { setInputVal("Check my symptoms"); handleSend(); }} className="glass px-5 py-2.5 rounded-full text-label-md font-semibold text-primary border-0 hover:bg-white transition-colors">
+<button onClick={() => handleSend("Check my symptoms")} className="glass px-5 py-2.5 rounded-full text-label-md font-semibold text-primary border-0 hover:bg-white transition-colors">
                     Symptom checker
                 </button>
 </div>
@@ -121,7 +158,7 @@ export default function AiAgentChat() {
   onChange={(e) => setInputVal(e.target.value)}
   onKeyDown={(e) => e.key === 'Enter' && handleSend()}
 />
-<button onClick={handleSend} className="bg-primary hover:bg-on-primary-fixed-variant text-on-primary w-11 h-11 rounded-full flex items-center justify-center shadow-md transition-all active:scale-90">
+<button onClick={() => handleSend()} disabled={!isSocketReady} className={`bg-primary hover:bg-on-primary-fixed-variant text-on-primary w-11 h-11 rounded-full flex items-center justify-center shadow-md transition-all active:scale-90 ${!isSocketReady ? 'opacity-60 cursor-not-allowed' : ''}`}>
 <span className="material-symbols-outlined">arrow_upward</span>
 </button>
 </div>

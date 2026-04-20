@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 import { useAuth } from '@clerk/clerk-react';
+import { API_BASE_URL } from '../lib/apiConfig';
 
 export default function CalendarInsights() {
   const { getToken } = useAuth();
@@ -15,8 +16,7 @@ export default function CalendarInsights() {
     async function fetchLogs() {
       try {
         const token = await getToken();
-        // Fallback to local
-        const res = await axios.get('http://127.0.0.1:8000/api/v1/logs', {
+        const res = await axios.get(`${API_BASE_URL}/logs`, {
           headers: { Authorization: `Bearer ${token}` }
         });
         setLogs(res.data);
